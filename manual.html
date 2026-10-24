@@ -1,0 +1,1661 @@
+<!doctype html>
+<html lang="zh-Hant" class="cm" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courtline 使用手冊</title>
+    <meta name="description" content="Courtline 排球戰術板使用手冊：6 個步驟學會在立體球場上擺站位、加下一球、瞄準落點、播放與存檔。" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23f5a524'/%3E%3Cg fill='none' stroke='%231c1303' stroke-width='1.7' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='7.5'/%3E%3Cpath d='M12 4.5c-.8 3.3 0 5.8 2.5 7.5s5.8 1.7 6.7.8M5.4 8.7c2.9.4 5.4 2.1 6.2 4.6s0 5-1.2 6.7M8.7 5.7c2.5 1.7 6.7 1.7 9.6.4'/%3E%3C/g%3E%3C/svg%3E" />
+    <script>
+      // Pick the theme before the first paint so the page never flashes the wrong colours.
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem("courtline.manual.theme");
+        } catch (error) {
+          theme = null;
+        }
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <script type="module" crossorigin src="/courtline-site/assets/manual-4nBREhMh.js"></script>
+    <link rel="modulepreload" crossorigin href="/courtline-site/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="stylesheet" crossorigin href="/courtline-site/assets/style-Bjy81pTG.css">
+  </head>
+  <body>
+    <a class="skip" href="#main">跳到主要內容</a>
+
+    <header class="topbar">
+      <button type="button" class="toc-toggle" aria-controls="toc" aria-expanded="false" aria-label="目錄">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" /></svg>
+        <span>目錄</span>
+      </button>
+      <a class="brand" href="#top" aria-label="Courtline 使用手冊，回到頂端">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 3c-1 4 0 7 3 9s7 2 8 1M3.5 8.5C7 9 10 11 11 14s0 6-1.5 7M8 4.5c3 2 8 2 11.5.5" /></svg>
+        </span>
+        <span class="brand-text"><strong>Courtline</strong><small>使用手冊</small></span>
+      </a>
+      <div class="search" role="search">
+        <label class="sr-only" for="search">搜尋手冊</label>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="M16 16l4.5 4.5" /></svg>
+        <input id="search" type="search" placeholder="搜尋，例如：半速、1號位、存檔" autocomplete="off" spellcheck="false" aria-describedby="search-status" />
+        <kbd class="search-key" aria-hidden="true">/</kbd>
+      </div>
+      <button type="button" class="theme-toggle" aria-pressed="false" title="切換深色／淺色">
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" /></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+        <span class="sr-only">深色模式</span>
+      </button>
+      <a class="open-app" href="./">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7z" /></svg>
+        <span>開啟 Courtline</span>
+      </a>
+    </header>
+
+    <div class="scrim" hidden></div>
+
+    <div class="layout">
+      <nav id="toc" class="toc" aria-label="手冊目錄">
+        <div class="toc-head">
+          <p class="toc-title">目錄</p>
+          <button type="button" class="toc-close" aria-label="關閉目錄">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+        </div>
+        <ol class="toc-list">
+          <li><a href="#start"><span class="n">1</span>快速上手（6 步）</a></li>
+          <li><a href="#tour"><span class="n">2</span>畫面導覽</a></li>
+          <li><a href="#players"><span class="n">3</span>擺站位</a></li>
+          <li><a href="#shots"><span class="n">4</span>加下一球與瞄準落點</a></li>
+          <li><a href="#air"><span class="n">5</span>球怎麼在空中傳遞</a></li>
+          <li><a href="#results"><span class="n">6</span>讀懂結果</a></li>
+          <li><a href="#tweak"><span class="n">7</span>手動微調一記球</a></li>
+          <li><a href="#steps"><span class="n">8</span>步驟與播放</a></li>
+          <li><a href="#camera"><span class="n">9</span>視角</a></li>
+          <li><a href="#draw"><span class="n">10</span>箭頭與畫線</a></li>
+          <li><a href="#files"><span class="n">11</span>存檔、開檔與分享</a></li>
+          <li><a href="#video"><span class="n">12</span>從影片匯入</a></li>
+          <li><a href="#faq"><span class="n">13</span>常見問題</a></li>
+        </ol>
+        <p class="toc-group">附錄</p>
+        <ol class="toc-list">
+          <li><a href="#settings"><span class="n">A</span>進階設定</a></li>
+          <li><a href="#keys"><span class="n">B</span>快捷鍵與滑鼠</a></li>
+          <li><a href="#about"><span class="n">C</span>關於模擬結果</a></li>
+        </ol>
+        <a class="toc-app" href="./">開啟 Courtline →</a>
+      </nav>
+
+      <main id="main" tabindex="-1">
+        <div id="top"></div>
+
+        <!-- ===================================================================== hero -->
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="kicker">排球戰術板・教練版</p>
+            <h1 id="hero-title">Courtline 使用手冊</h1>
+            <p class="promise">6 個步驟，排出第一個戰術</p>
+            <p class="hero-lead">
+              擺好站位、一球一球加上去、按下播放。你會看到球員怎麼跑位、在空中怎麼把球傳給下一個人——球路依照真實的物理計算，過網高度、落點和誰接得到，一眼就清楚。
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#start">開始 6 步上手</a>
+              <a class="btn btn-ghost" href="./">開啟 Courtline</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <svg viewBox="0 0 360 220">
+              <rect x="0" y="0" width="360" height="220" rx="18" class="art-bg" />
+              <rect x="30" y="35" width="300" height="150" class="art-floor" />
+              <g class="art-lines">
+                <rect x="30" y="35" width="300" height="150" />
+                <path d="M130 35v150M230 35v150" stroke-dasharray="5 5" />
+              </g>
+              <path d="M180 26v168" class="art-net" />
+              <circle cx="180" cy="26" r="3.5" class="art-post" />
+              <circle cx="180" cy="194" r="3.5" class="art-post" />
+              <g class="art-own">
+                <circle cx="62" cy="62" r="8" /><circle cx="62" cy="110" r="8" /><circle cx="62" cy="158" r="8" />
+                <circle cx="150" cy="62" r="8" /><circle cx="150" cy="110" r="8" /><circle cx="150" cy="158" r="8" />
+              </g>
+              <g class="art-opp">
+                <circle cx="210" cy="62" r="8" /><circle cx="210" cy="110" r="8" /><circle cx="210" cy="158" r="8" />
+                <circle cx="298" cy="62" r="8" /><circle cx="298" cy="110" r="8" /><circle cx="298" cy="158" r="8" />
+              </g>
+              <path d="M150 158 C 190 40, 240 40, 268 128" class="art-arc" />
+              <circle cx="268" cy="128" r="12" class="art-aim" />
+              <circle cx="268" cy="128" r="4" class="art-aim-dot" />
+              <circle cx="150" cy="158" r="4" class="art-ball" />
+            </svg>
+          </div>
+          <ul class="quick" aria-label="快速連結">
+            <li>
+              <a href="#start">
+                <span class="q-icon q-amber"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10" /></svg></span>
+                <b>快速上手</b>
+                <small>6 個步驟做出第一個戰術</small>
+              </a>
+            </li>
+            <li>
+              <a href="#tour">
+                <span class="q-icon q-blue"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M3 8h18M8 8v10" /></svg></span>
+                <b>畫面導覽</b>
+                <small>每個按鈕在哪裡、做什麼</small>
+              </a>
+            </li>
+            <li>
+              <a href="#faq">
+                <span class="q-icon q-red"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.6v.6M12 17.5v.01" /></svg></span>
+                <b>常見問題</b>
+                <small>掛網、吊球、選錯人、存檔…</small>
+              </a>
+            </li>
+            <li>
+              <a href="#keys">
+                <span class="q-icon q-cyan"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6" width="19" height="12" rx="2" /><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10" /></svg></span>
+                <b>快捷鍵</b>
+                <small>用鍵盤操作更快</small>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- ===================================================================== tasks -->
+        <section class="tasks" aria-labelledby="h-tasks">
+          <h2 id="h-tasks" class="tasks-title">我想要…</h2>
+          <ul class="task-list">
+            <li><a href="#zones"><b>讓發球打到對方 1 號位</b><small>號位圖與瞄準落點</small></a></li>
+            <li><a href="#chain"><b>排一次「接發 → 舉球 → 攻擊」</b><small>一球接一球加上去</small></a></li>
+            <li><a href="#who"><b>指定由某位球員來打</b><small>「由 X 擊球」與 ×</small></a></li>
+            <li><a href="#play"><b>慢動作播給球員看</b><small>半速 ½×、¼×</small></a></li>
+            <li><a href="#share"><b>存檔，帶去別台電腦</b><small>儲存成檔案、開啟戰術檔</small></a></li>
+            <li><a href="#video"><b>把比賽影片變成走位</b><small>從影片匯入</small></a></li>
+          </ul>
+        </section>
+
+        <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
+
+        <!-- ===================================================================== 1 -->
+        <!-- ===================================================================== 1 -->
+        <section class="chapter" id="start" aria-labelledby="h-start" data-keywords="開始 入門 教學 第一次 新手 上手 快速 示範 歡迎 取名 改名 命名 加下一球 新增一記">
+          <h2 id="h-start"><span class="ch-no" aria-hidden="true">1</span>快速上手（6 步）</h2>
+          <p class="lede">第一次用？照著做一次，大約 5 分鐘。做完你會有一段「發球 → 接發 → 舉球 → 攻擊」的戰術動畫，並且取好名字、存成檔案。</p>
+
+          <ol class="steps">
+            <li>
+              <h3>打開 Courtline</h3>
+              <p>第一次打開會看到歡迎畫面。想先看成品，按<b class="ui">先看示範</b>，會自動播放內建的「示範：發球到攻防」（雙方 6 對 6，發球 → 接發 → 舉球 → 攻擊 → 防守）。想自己動手，按<b class="ui">從空白球場開始</b>。</p>
+              <figure class="shot">
+                <a class="zoom" href="manual/welcome.png"><img src="manual/welcome.png" width="760" height="404" loading="lazy" alt="歡迎畫面：說明擺站位、加一記球、播放三個步驟，下方有「先看示範」「從空白球場開始」「閱讀使用手冊」三個按鈕。" /></a>
+                <figcaption>歡迎畫面。之後隨時可以從「檔案 → 載入示範戰術」再看一次示範。</figcaption>
+              </figure>
+            </li>
+            <li>
+              <h3>擺好雙方站位</h3>
+              <p>空白球場中間有一張卡片。按<b class="ui">擺好雙方 6 人</b>，雙方會照 1–6 號位站好。</p>
+              <figure class="shot">
+                <a class="zoom" href="manual/empty-court.png"><img src="manual/empty-court.png" width="512" height="276" loading="lazy" alt="空白球場中央的卡片：「先把球員放上球場」，下方有「擺好雙方 6 人」「我自己放」「從影片匯入」三個按鈕，「擺好雙方 6 人」被圈起來。" /></a>
+                <figcaption>按圈起來的「擺好雙方 6 人」。</figcaption>
+              </figure>
+              <p>想調整某個人的位置，在場上直接拖曳他。</p>
+            </li>
+            <li>
+              <h3>按「加下一球」的「發球」</h3>
+              <p>看右側的<b class="ui">擊球</b>分頁，在<b class="ui">加下一球</b>下面按<b class="ui">發球</b>。</p>
+              <figure class="shot">
+                <a class="zoom" href="manual/quick-add.png"><img src="manual/quick-add.png" width="367" height="164" loading="lazy" alt="右側擊球分頁的「加下一球」：右上角寫著「自動挑選擊球者」，下面是發球、接發、舉球、攻擊、攔網、防守、自由球七個按鈕，「發球」被圈起來。" /></a>
+                <figcaption>「加下一球」的技術按鈕。右上角寫著「自動挑選擊球者」。</figcaption>
+              </figure>
+              <div class="callout key">
+                <p class="callout-title">👀 按之前先看一眼右上角：這一球由誰打？</p>
+                <p>平常寫<b>「自動挑選擊球者」</b>：Courtline 自己挑。發球找<b>我方離底線最近</b>的人，他會先退到底線外發球，發完再走回場內。</p>
+                <p><b>想指定某個人打？</b>在場上點他（例如 我3）。右邊會<b>自動切到<b class="ui">球員</b>分頁</b>、顯示 我3 的資料，所以「加下一球」暫時看不到了——這是正常的。兩種做法都可以：</p>
+                <div class="mini-pair">
+                  <figure class="shot">
+                    <a class="zoom" href="manual/player-hit.png"><img src="manual/player-hit.png" width="363" height="213" loading="lazy" alt="球員分頁裡的「讓 我3 擊球」：發球、接發、舉球、攻擊、攔網、防守、自由球七個按鈕被圈起來，下面寫著「這一記由 我3 打出，放在目前這一步」。" /></a>
+                    <figcaption>做法一：在「球員」分頁直接按<b>讓 我3 擊球</b>下面的技術。</figcaption>
+                  </figure>
+                  <figure class="shot">
+                    <a class="zoom" href="manual/hitter-picked.png"><img src="manual/hitter-picked.png" width="367" height="164" loading="lazy" alt="「加下一球」右上角的小標籤「由 我3 擊球 ×」被圈起來。" /></a>
+                    <figcaption>做法二：按上方的「擊球」分頁回來，右上角寫「由 我3 擊球 ×」，再按技術。按 <b>×</b> 改回自動挑選。</figcaption>
+                  </figure>
+                </div>
+                <p>點過的人只用一次：加完這一球，就自動改回「自動挑選擊球者」。</p>
+              </div>
+            </li>
+            <li>
+              <h3>點球場，指定落點</h3>
+              <p>
+                加好之後，左側工具會自動切到<b class="ui ui-aim">瞄準落點</b>，場上淡淡標出雙方的 1–6 號區；滑鼠移到哪裡，旁邊就寫「對方 1 號區」這類位置。在你想讓球落下的地方點一下，球速和角度會自動算好，球場下方跳出「已瞄準：界內，落在…」。點完一次就回到<b class="ui">選取</b>。瞄準時<b>點到哪裡就是瞄準哪裡</b>：就算那裡剛好浮著某位球員的名牌，也是瞄準名牌下面的地板。
+              </p>
+              <div class="mini-pair">
+                <figure class="shot">
+                  <a class="zoom" href="manual/quick-aim-zones.png"><img src="manual/quick-aim-zones.png" width="983" height="800" loading="lazy" alt="我方視角的球場，瞄準模式：雙方場地淡淡標出 1 到 6 號區。我1 退到底線外準備發球，黃色球路先瞄在對方 6 號區（後排中間，標著「界內」）。游標停在對方場地左後角，旁邊的小標籤只寫「對方 1 號區」。" /></a>
+                  <figcaption>瞄準時：發球已經先瞄在對方後排中間；場上標出號區，游標旁寫出「對方 1 號區」。對方 1 號位在<b>畫面左上</b>（他們面向我們）。</figcaption>
+                </figure>
+              </div>
+              <figure class="shot">
+                <a class="zoom" href="manual/quick-aim.png"><img src="manual/quick-aim.png" width="983" height="800" loading="lazy" alt="點下去之後：黃色球路從我1 的發球點飛過網，落在對方場地左後角，落點旁標著綠色的「界內」，對方球員頭上標著「接得到」或「接不到」。" /></a>
+                <figcaption>點下去：球路落在對方 1 號區。球員頭上的小標籤寫著誰「接得到」、誰「接不到」（判斷方式見<a href="#reach">第 6 章</a>）。</figcaption>
+              </figure>
+              <p>右側的結果卡片同時告訴你結論：<span class="tag tag-good">界內</span>、<span class="tag tag-bad">出界</span>、<span class="tag tag-bad">掛網</span>…，以及落在哪一區。</p>
+              <figure class="shot">
+                <a class="zoom" href="manual/quick-verdict.png"><img src="manual/quick-verdict.png" width="363" height="463" loading="lazy" alt="綠色結果卡片：界內，落在對方 1 號區（後排右側），下面列出飛行時間、過網、最高點、出手球速，以及誰接得到：每個人一行，寫接得到或接不到，再寫離地幾公尺接、要跑幾公尺，或差幾公尺。" /></a>
+                <figcaption>結果卡片：大字是結論，下面是細節。</figcaption>
+              </figure>
+              <p class="aside-tip">💡 想改落點，再按一次<b class="ui ui-aim">瞄準落點</b>（或按 <kbd>T</kbd>）再點。每一區在畫面哪裡，看<a href="#zones">號位圖</a>。</p>
+            </li>
+            <li>
+              <h3>一球接一球加下去，然後播放</h3>
+              <p>
+                繼續按<b class="ui">接發</b>、<b class="ui">舉球</b>、<b class="ui">攻擊</b>。每按一次，下方就多一步，Courtline 會<b>自己挑人</b>：找<b>球落下來的那一邊、離球最近</b>的人，他先跑到球下面，<b>在空中接到球</b>再打出去（接發約在離地 0.9 公尺、舉球 2.4 公尺、攻擊 3 公尺）。結果卡會寫「傳到 對3」這類句子，詳見<a href="#air">球怎麼在空中傳遞</a>。
+              </p>
+              <p><b>每一球加好時，已經先瞄在這種球常見的位置</b>：接發傳到網前給舉球員、舉球舉到 4 號位、攻擊打進對方場地。所以<b>點場地是選擇性的</b>——滿意就直接按下一個技術（或按 <kbd>Esc</kbd> 不瞄準）；想換落點，趁工具還在<b class="ui ui-aim">瞄準落點</b>時點一下場地就好。</p>
+              <p>例如發球打到對方 1 號區之後，連按接發、舉球、攻擊，下方步驟會依序出現「接發 對1」「舉球 對3」「攻擊 對4」：對1 接起、對3 舉球、對4 扣球，全部在空中接力。</p>
+              <div class="mini-pair">
+                <figure class="shot">
+                  <a class="zoom" href="manual/add-shot.png"><img src="manual/add-shot.png" width="372" height="160" loading="lazy" alt="擊球分頁最上方的「加下一球」：七個技術按鈕，下面是「自動挑選擊球者」。" /></a>
+                  <figcaption>擊球分頁最上方的「加下一球」：按一個技術就多一步。</figcaption>
+                </figure>
+                <figure class="shot">
+                  <a class="zoom" href="manual/pass-handed.png"><img src="manual/pass-handed.png" width="363" height="351" loading="lazy" alt="綠色結果卡片：傳到 對3，對3 在離地 2.4 公尺處接到球，下面是飛到 對3 的時間、接球高度、最高點、出手球速。" /></a>
+                  <figcaption>接發那一步的結果：「傳到 對3」，對3 在離地 2.4 公尺接到，接著舉球。</figcaption>
+                </figure>
+              </div>
+              <p>我方發球落在對方場地，所以接下來是<b>對方</b>接發、舉球、攻擊。想排我方的接發進攻，看<a href="#chain">讓對方先發球</a>。</p>
+              <p>最後按左下角的播放鍵（或按 <kbd>空白鍵</kbd>）。想慢慢看、講解給球員聽，先按播放列右邊的<b class="ui">½×</b>（半速）。</p>
+              <figure class="shot">
+                <a class="zoom" href="manual/quick-play.png"><img src="manual/quick-play.png" width="749" height="76" loading="lazy" alt="下方播放列：① 圓形播放鍵，② 速度選擇的「½×」，兩個都被圈起來。" /></a>
+                <figcaption>① 播放　② 半速（½×）</figcaption>
+              </figure>
+            </li>
+            <li>
+              <h3>取名並存檔</h3>
+              <p>
+                按<b class="ui">檔案</b> → <b class="ui">儲存成檔案</b>。還沒取名的戰術會先跳出「替這個戰術取個名字」，輸入好認的名字（例如「接發進攻 4 號位」）再按<b class="ui">儲存</b>。戰術檔會下載到電腦的「下載」資料夾，檔名就是戰術名稱。
+              </p>
+              <div class="mini-pair">
+                <figure class="shot">
+                  <a class="zoom" href="manual/quick-save.png"><img src="manual/quick-save.png" width="490" height="259" loading="lazy" alt="打開的檔案選單：新增空白戰術、載入示範戰術、開啟戰術檔…、儲存成檔案，「儲存成檔案」被圈起來。" /></a>
+                  <figcaption>① 檔案 → 儲存成檔案。</figcaption>
+                </figure>
+                <figure class="shot">
+                  <a class="zoom" href="manual/quick-name.png"><img src="manual/quick-name.png" width="520" height="219" loading="lazy" alt="「替這個戰術取個名字」對話框：說明「檔名會用這個名字，方便之後找。」，輸入框裡寫著「接發進攻 4 號位」，下方有「儲存」和「取消」。" /></a>
+                  <figcaption>② 取個名字，按「儲存」。</figcaption>
+                </figure>
+              </div>
+              <p>也可以隨時點左上角的戰術名稱直接改名。其實不存檔也不會不見：每個修改都會自動存在這台電腦的瀏覽器裡，名字旁邊的小字會寫「儲存中…」，接著「已自動儲存」。存成檔案是為了帶走、分享或備份；也可以直接按 <kbd>Ctrl</kbd>+<kbd>S</kbd>（等於「檔案 → 儲存成檔案」）。</p>
+            </li>
+          </ol>
+
+          <div class="callout tip">
+            <p class="callout-title">💡 做錯了別擔心</p>
+            <p>按 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 或上方的<b class="ui">復原</b>就能退回上一個動作，連「新增空白戰術」都能換回來。</p>
+          </div>
+        </section>
+
+        <!-- ===================================================================== 2 -->
+        <section class="chapter" id="tour" aria-labelledby="h-tour" data-keywords="介面 按鈕 位置 版面 上方 左側 右側 下方 工具列 分頁 畫面 網高 女子 男子 共幾步">
+          <h2 id="h-tour"><span class="ch-no" aria-hidden="true">2</span>畫面導覽</h2>
+          <p class="lede">整個畫面分成五塊：上方是檔案，左邊是工具，中間是球場，右邊是設定這一球的地方，下方是播放和步驟。</p>
+
+          <div class="tour-map">
+            <figure class="shot annotated wide" data-markers="manual/overview-markers.json" data-lb-caption="1 戰術名稱・2 檔案選單・3 場上工具・4 球場・5 視角按鈕・6 右側分頁・7 擊球結果・8 播放・9 步驟">
+              <div class="annot">
+                <a class="zoom" href="manual/overview.png"><img src="manual/overview.png" width="1440" height="900" loading="lazy" alt="Courtline 主畫面（示範戰術的第 1 步：發球）：上方是戰術名稱與檔案選單，左側是場上工具，中間是立體球場與視角按鈕，右側是加下一球和結果卡片，下方是播放列與步驟。" /></a>
+                <span class="pin" data-pin="1" style="--x: 27.04%; --y: 3.22%" aria-hidden="true">1</span>
+                <span class="pin" data-pin="2" style="--x: 73.89%; --y: 3.22%" aria-hidden="true">2</span>
+                <span class="pin" data-pin="3" style="--x: 6.94%; --y: 18.11%" aria-hidden="true">3</span>
+                <span class="pin" data-pin="4" style="--x: 16.14%; --y: 44.34%" aria-hidden="true">4</span>
+                <span class="pin" data-pin="5" style="--x: 52.78%; --y: 10.22%" aria-hidden="true">5</span>
+                <span class="pin" data-pin="6" style="--x: 82.82%; --y: 9.5%" aria-hidden="true">6</span>
+                <span class="pin" data-pin="7" style="--x: 97.08%; --y: 53.44%" aria-hidden="true">7</span>
+                <span class="pin" data-pin="8" style="--x: 8.47%; --y: 78.22%" aria-hidden="true">8</span>
+                <span class="pin" data-pin="9" style="--x: 2.92%; --y: 89.67%" aria-hidden="true">9</span>
+              </div>
+              <figcaption>點下方的說明，圖中對應的號碼會亮起來。點圖可以放大。</figcaption>
+            </figure>
+
+            <ol class="legend">
+              <li data-pin="1" tabindex="0"><b>戰術名稱</b>點一下就能改名。旁邊的小字是自動儲存的狀態，例如「已自動儲存」「儲存中…」，剛打開還沒改過的示範則寫「尚未自動儲存」（每種狀態的意思見<a href="#files">第 11 章</a>）。</li>
+              <li data-pin="2" tabindex="0"><b>檔案選單</b>新增、載入示範、開啟和儲存戰術檔。旁邊是「從影片匯入」和「使用手冊」。</li>
+              <li data-pin="3" tabindex="0"><b>場上工具</b>選取、放我方、放對方、瞄準落點、擊球點、箭頭、畫線，各有一個快捷鍵；最下面是「? 快捷鍵」。</li>
+              <li data-pin="4" tabindex="0"><b>球場</b>拖曳球員、點地板指定落點；在空白地板上拖曳可以轉動視角。</li>
+              <li data-pin="5" tabindex="0"><b>視角按鈕</b>我方視角、對方視角、俯視、側面，一鍵切換。</li>
+              <li data-pin="6" tabindex="0"><b>右側分頁</b>「擊球」加下一球和設定每一球，「球員」管理名單，「設定」放進階選項。</li>
+              <li data-pin="7" tabindex="0"><b>擊球結果</b>界內、出界、傳到誰、過網多高、誰接得到，都在這張卡片。</li>
+              <li data-pin="8" tabindex="0"><b>播放</b>播放／暫停、從頭播放、拖曳時間、切換慢動作。</li>
+              <li data-pin="9" tabindex="0"><b>步驟</b>「共 N 步」、起始站位和之後的每一步；點一下就跳到那一步編輯。</li>
+            </ol>
+          </div>
+
+          <h3>左側的場上工具</h3>
+          <div class="split split-narrow">
+            <figure class="shot tools-shot">
+              <a class="zoom" href="manual/tools.png"><img src="manual/tools.png" width="85" height="490" loading="lazy" alt="左側工具列：選取、放我方、放對方、瞄準落點、擊球點、箭頭、畫線，每個按鈕右上角標著快捷鍵。" /></a>
+            </figure>
+            <div class="table-wrap">
+              <table class="ref">
+                <caption class="sr-only">左側工具與用途</caption>
+                <thead><tr><th scope="col">工具</th><th scope="col">用途</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">選取 <kbd>V</kbd></th><td>點球員選取、拖曳移動；拖曳選中那一球的落點圈可以改落點；拖曳空白地板轉動視角；雙擊空白處回正。平常停在這個工具就好。</td></tr>
+                  <tr><th scope="row"><span class="c-own">放我方</span> <kbd>Q</kbd></th><td>點球場放一位我方球員（最多 6 人）。</td></tr>
+                  <tr><th scope="row"><span class="c-opp">放對方</span> <kbd>W</kbd></th><td>點球場放一位對方球員（最多 6 人）。</td></tr>
+                  <tr><th scope="row"><span class="c-aim">瞄準落點</span> <kbd>T</kbd></th><td>點球場上想讓球落下的位置，自動算出球速與角度。點一次就回到選取。點到名牌或球員身上，也是瞄準那裡的地板；要改選球員，先按 <kbd>Esc</kbd> 回到選取再點他。</td></tr>
+                  <tr><th scope="row">擊球點 <kbd>R</kbd></th><td>點球場或拖曳，移動目前這一球從哪裡打出（場上黃色的圈），擊球者會跟著一起移過去。高度在「擊球」分頁調整。</td></tr>
+                  <tr><th scope="row">箭頭 <kbd>A</kbd></th><td>在地上拖出箭頭，標示跑位方向。</td></tr>
+                  <tr><th scope="row">畫線 <kbd>D</kbd></th><td>按住拖曳，自由畫出路線。</td></tr>
+                  <tr><th scope="row">清除畫線</th><td>場上有箭頭或畫線時才會出現，一次全部清掉（可以復原）。</td></tr>
+                  <tr><th scope="row">? 快捷鍵</th><td>在工具列最下面，打開快捷鍵一覽（見<a href="#keys">附錄 B</a>）。</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <h3>上方列還有這些</h3>
+          <ul>
+            <li><b class="ui">復原</b>／<b class="ui">重做</b>：退回或重做上一個動作（<kbd>Ctrl</kbd>+<kbd>Z</kbd>／<kbd>Ctrl</kbd>+<kbd>Y</kbd>）。</li>
+            <li><b class="ui">網高</b>：<b class="ui">男子 2.43</b> 或 <b class="ui">女子 2.24</b> 公尺。切換後所有球路會立刻重算。</li>
+            <li><b class="ui">從影片匯入</b>：把比賽影片變成走位動畫，見<a href="#video">第 12 章</a>。</li>
+            <li><b class="ui">使用手冊</b>：在新分頁打開這份手冊。</li>
+          </ul>
+
+          <div class="callout tip">
+            <p class="callout-title">💡 看不懂下一步？看球場最下面</p>
+            <p>球場最下方有一行小字，會告訴你目前的工具怎麼用。做完一個動作後，那行小字上面會跳出簡短的提示（例如「已加入第 2 步：對1的接發…」），幾秒後自動消失，也可以按 × 關掉。</p>
+          </div>
+        </section>
+
+        <!-- ===================================================================== 3 -->
+        <section class="chapter" id="players" aria-labelledby="h-players" data-keywords="站位 球員 放人 陣型 位置 拖曳 名字 背號 顏色 球衣 刪除球員 移除 接球習慣 補滿 號位 號區 選取 選人 取消選取 全部球員 俯視">
+          <h2 id="h-players"><span class="ch-no" aria-hidden="true">3</span>擺站位</h2>
+          <p class="lede">每邊最多 6 人。可以一鍵擺好基本站位，也可以自己一個一個放。</p>
+
+          <figure class="shot">
+            <a class="zoom" href="manual/formation.png"><img src="manual/formation.png" width="899" height="524" loading="lazy" alt="寬螢幕的俯視：球場橫放，我方在左半場、對方在右半場。我方前排靠網由上到下是我4、我3、我2，後排是我5、我6、我1；對方前排由上到下是對2、對3、對4，後排是對1、對6、對5。" /></a>
+            <figcaption>一鍵擺好後（寬螢幕的俯視）：我方在<b>左</b>、對方在右，我1 在左下角，對1 在右上角。</figcaption>
+          </figure>
+
+          <h3>一鍵擺好</h3>
+          <p>
+            空白球場上按<b class="ui">擺好雙方 6 人</b>，雙方都會站到 1–6 號位。已經有人的時候，到右側<b class="ui">球員</b>分頁，按某一隊旁邊的<b class="ui">補滿 6 人站位</b>，就會把空著的號位補上。
+          </p>
+
+          <h3>自己放</h3>
+          <ol>
+            <li>按左側<b class="ui ui-own">放我方</b>（<kbd>Q</kbd>）或<b class="ui ui-opp">放對方</b>（<kbd>W</kbd>）。</li>
+            <li>在球場上點想放的位置，一次放一位。名字會自動取成「我1、我2…」或「對1、對2…」。</li>
+            <li>放好後按<b class="ui">選取</b>（<kbd>V</kbd>）或 <kbd>Esc</kbd> 回到一般模式。</li>
+          </ol>
+
+          <h3>移動球員</h3>
+          <p>在<b class="ui">選取</b>模式下，直接用滑鼠<b>拖曳球員</b>到新位置。</p>
+
+          <div class="callout key">
+            <p class="callout-title">👆 點過、拖過的球員會「選中」</p>
+            <p>
+              點一下或拖過的球員會被選中：右側會自動切到「球員」分頁、顯示他的資料，可以直接按<b class="ui">讓 他 擊球</b>下面的技術按鈕。按回<b class="ui">擊球</b>分頁，「加下一球」右上角也會寫<b>「由 他 擊球」</b>，下一球就由他打。要取消，按那個標籤上的 <b>×</b>，或按「球員」分頁最上面的<b class="ui">← 全部球員</b>。剛用「放我方／放對方」放下的球員<b>不會</b>被選中。
+            </p>
+          </div>
+
+          <div class="callout note">
+            <p class="callout-title">📌 每一步的站位分開記錄</p>
+            <p>
+              你拖的是<b>下方亮著的那一步</b>的位置。在前面的步驟移動球員時，後面還沒動過他的步驟會跟著一起改；後面已經另外擺過他的步驟（例如他在那一步跑去接球），則保持原樣。如果這位球員是某一球的擊球者，擊球點也會跟著他走。
+            </p>
+            <p>
+              拖的是<b>在空中接球的人</b>時（例如舉球員），上一球會<b>改傳到他的新位置</b>，他自己那一球仍打到原本的落點。新位置接不到上一球時，會提示「這位球員移到了接不到上一球的位置；上一球的路線沒有改。」
+            </p>
+          </div>
+
+          <h3>球員分頁</h3>
+          <p>右側<b class="ui">球員</b>分頁列出雙方名單，以及每個人目前站在幾號區。點一位球員可以：</p>
+          <ul>
+            <li>改<b>名字</b>（例如換成背號或姓名，按 <kbd>Enter</kbd> 確定）和<b>球衣顏色</b>。</li>
+            <li>用「在「起始站位」的位置」（或「在「第 N 步」的位置」）下面的<b class="ui">離我方底線</b>、<b class="ui">離左邊線</b>兩個滑桿，以公尺為單位微調目前這一步的位置。「左邊」是從我方往對方看的左手邊。用滑桿移動和直接拖曳一樣：回合會接好，他在空中接的那一球會改傳到他的新位置。</li>
+            <li>用<b class="ui">接球習慣</b>決定「誰接得到？」怎麼看這位球員（見<a href="#reach">第 6 章</a>）。預設勾著<b class="ui">跟全隊預設一樣</b>；取消勾選，就會出現他自己的接球範圍設定（一開始是全隊預設的複本），可以只調他一個人，例如把「用上手接球」關掉。再勾回去，他自己的設定就會丟掉、改回跟全隊一樣。這些調整都可以復原。</li>
+            <li>按<b class="ui">讓 我1 擊球</b>下面的技術按鈕，直接讓他打下一球。</li>
+            <li>按<b class="ui ui-danger">移除這位球員</b>把他從戰術裡拿掉（他打的球保留，但沒有擊球者；他自己的接球習慣也一起拿掉）。</li>
+          </ul>
+
+          <div class="pair panels">
+            <figure class="shot panel">
+              <a class="zoom" href="manual/roster.png"><img src="manual/roster.png" width="372" height="654" loading="lazy" alt="球員分頁：我方（6 / 6）和對方（6 / 6）的名單，每個人下面標示站在幾號區。" /></a>
+              <figcaption>名單：每個人都標出所在號區。</figcaption>
+            </figure>
+            <figure class="shot panel">
+              <a class="zoom" href="manual/player-editor.png"><img src="manual/player-editor.png" width="372" height="974" loading="lazy" alt="單一球員的編輯畫面：最上面是「← 全部球員」，接著是名字、球衣顏色、在「起始站位」的位置的兩個滑桿、這一步的跑動時機、「接球習慣」（勾著「跟全隊預設一樣」）、「讓 我1 擊球」的技術按鈕，最下面是移除這位球員。" /></a>
+              <figcaption>點一位球員：名字、顏色、位置、接球習慣、讓他擊球。最上面的「← 全部球員」回到名單並取消選中。</figcaption>
+            </figure>
+          </div>
+          <div class="pair panels">
+            <figure class="shot panel">
+              <a class="zoom" href="manual/player-reach.png"><img src="manual/player-reach.png" width="359" height="554" loading="lazy" alt="「接球習慣」區塊，「跟全隊預設一樣」的勾已取消：下面出現這位球員自己的胸口高度、錐張開角度、手臂伸直長度、上手扇形角度四個滑桿，以及「用上手接球」「用低手接球」兩個勾選框。" /></a>
+              <figcaption>取消「跟全隊預設一樣」之後，這位球員有自己的一組接球範圍設定。</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ===================================================================== 4 -->
+        <section class="chapter" id="shots" aria-labelledby="h-shots" data-keywords="擊球 點步驟 選球 選一個球 放回時間軸 加下一球 新增 發球 接發 舉球 攻擊 攔網 防守 自由球 瞄準 落點 目標 擊球者 誰打 誰來打 選人 自動挑選 號位 號區 號位圖 1號位 2號位 3號位 4號位 5號位 6號位 順序 接發進攻 高吊球">
+          <h2 id="h-shots"><span class="ch-no" aria-hidden="true">4</span>加下一球與瞄準落點</h2>
+          <p class="lede">先選技術，再點球場告訴它球要落在哪裡。誰來打、跑到哪裡接、球速和角度，交給 Courtline 算。</p>
+
+          <h3>加下一球</h3>
+          <div class="split aim-split">
+            <figure class="shot">
+              <a class="zoom" href="manual/add-shot.png"><img src="manual/add-shot.png" width="372" height="160" loading="lazy" alt="擊球分頁最上方的「加下一球」：七個技術按鈕，下面是「自動挑選擊球者」。" /></a>
+              <figcaption>右側「擊球」分頁最上方的「加下一球」。</figcaption>
+            </figure>
+            <div class="split-text">
+          <p>在右側<b class="ui">擊球</b>分頁的「加下一球」，按下其中一個技術：</p>
+          <div class="skills" role="list">
+            <span role="listitem"><b>發球</b>從底線把球打過網</span>
+            <span role="listitem"><b>接發</b>接對方發球，傳給舉球員</span>
+            <span role="listitem"><b>舉球</b>把球托高給攻擊手</span>
+            <span role="listitem"><b>攻擊</b>跳起扣球</span>
+            <span role="listitem"><b>攔網</b>在網前擋球</span>
+            <span role="listitem"><b>防守</b>救起對方的攻擊</span>
+            <span role="listitem"><b>自由球</b>把球送過網的機會球</span>
+          </div>
+            </div>
+          </div>
+
+          <h3 id="pick-shot">選一個已經加好的球</h3>
+          <p>想看或修改某一球，不用找清單，直接<b>點下方步驟列上那一步</b>（例如「接發 對1」），那一步的球就會被選中，右側「擊球」分頁會顯示它的數字。也可以<b>點場上那條球路</b>來選它。</p>
+          <p>如果某一球不在任何一步裡（例如刪掉或移走了它原本的那一步），它還在，只是下方看不到：點一個別的步驟，在<b class="ui">這一步的擊球</b>的下拉選單選它，就能放回那一步。</p>
+
+          <h3 id="chain">一球接一球：新的一球放在哪裡？</h3>
+          <ul>
+            <li><b>停在起始站位時</b>（例如剛擺好站位，或剛按過起始站位）：新的一球接在<b>整個回合最後一球</b>的後面。</li>
+            <li><b>停在某一步時</b>：新的一球放進自己的一步，接在那一步後面（如果那一步是還沒有擊球的「跑位」，就直接放進那一步）。</li>
+          </ul>
+          <p>所以排「發球 → 接發 → 舉球 → 攻擊」時，只要依序按下去：每一球已經先瞄在常見的位置，下一個人會自己跑去接；想換落點，加完那一球時點一下場地。加完之後畫面會停在新的那一步。場上還沒有球員時，會先請你擺好站位；發球後面不能直接加攔網（對方接發球請用「接發」）。</p>
+          <div class="callout tip">
+            <p class="callout-title">💡 想排「我方」的接發進攻？讓對方先發球</p>
+            <p>
+              我方發球時，球落在對方場地，接下來的接發、舉球、攻擊就是<b>對方</b>在打。想練我方接發進攻：在場上點一位<b>對方後排球員</b>（例如 對1）的名牌，右邊切到「球員」分頁後，按<b class="ui">讓 對1 擊球</b>下面的<b class="ui">發球</b>（或回到「擊球」分頁，看到「由 對1 擊球」再按發球），球會落在我方場地；再依序按<b class="ui">接發</b>、<b class="ui">舉球</b>、<b class="ui">攻擊</b>，就是我方球員在打（接發傳到網前給 我3、舉球舉給 4 號位的 我4，都會自動瞄好；想換落點再點場地）。
+            </p>
+          </div>
+          <div class="callout warn">
+            <p class="callout-title">⚠️ 點回中間的步驟再加球，會插在中間</p>
+            <p>例如你點回「發球」那一步檢查，再按<b class="ui">舉球</b>，舉球就會插在發球和接發中間。要加在最後面，先點<b>起始站位</b>或最後一步再加。插錯了就按 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 復原再加一次。</p>
+          </div>
+
+          <h3 id="who">誰來打這一球？</h3>
+          <p>看「加下一球」右上角的小標籤：</p>
+          <ul>
+            <li><b>「由 我3 擊球 ×」</b>：你剛點過或拖過 我3（或在「球員」分頁選了他），這一球就由他打。注意：<b>一點球員，右邊就會切到<b class="ui">球員</b>分頁</b>（所以「加下一球」暫時不見了）；可以直接按那裡<b class="ui">讓 我3 擊球</b>下面的技術按鈕，或按<b class="ui">擊球</b>分頁回來，看到這個標籤再按技術（兩張圖見<a href="#start">第 1 章第 3 步</a>）。正在瞄準落點時點球員只會瞄準那裡的地板，要選人先按 <kbd>Esc</kbd>。如果不是發球或攔網，他會<b>跑到上一球落下的位置</b>去打，<b>上一球的球路不會被改</b>。他接不到上一球（在網子另一邊，或上一球就是他打的，不能連續觸球）時，會改由最近接得到的人打，並提示原因。按 <b>×</b> 改回自動挑選。加完這一球，選中會自動取消。</li>
+            <li><b>不能在中間插一球</b>：選的那一步的球如果下一步已經有人接著打（例如舉球後面已經有攻擊），再按技術會被擋下並說明原因，原本的球都不會變。要換人或換打法，請到下一步改<b class="ui">技術</b>或<b class="ui">擊球者</b>；要接在後面，先選最後一步。</li>
+            <li><b>「自動挑選擊球者」</b>：Courtline 依技術挑人——
+              <ul>
+                <li><b>發球</b>：我方離底線最近的人（回合中途也一樣）。他先退到底線外 1 公尺發球，這一步再走回原位。</li>
+                <li><b>攔網</b>：球過網那一邊的前排、離過網點最近的人，移到網前攔網。</li>
+                <li><b>其他技術</b>：上一球<b>落下穿過這個技術的擊球高度</b>（接發約 0.9 公尺、舉球 2.4 公尺、攻擊 3 公尺、防守 0.8 公尺）那一點，在那半場離它最近的人（剛擊球的人除外）。他在上一步跑到那裡，在空中接球再打出去。</li>
+                <li>上一球出界時，通常不會有人接，這一球先不指定擊球者；找不到合適的人時，擊球者是「（未指定）」，下方步驟上這一步只有技術名稱、後面沒有人名（處理方法見<a href="#faq-noname">常見問題</a>）。</li>
+              </ul>
+            </li>
+          </ul>
+          <p><b>加好之後才想換人：</b>在結果卡片下面「這一記怎麼打」的<b class="ui">擊球者</b>選單選一個人。<b>新選的人會跑到原本打這一球的位置</b>（在上一步跑到原本的接球點，在空中接球；發球就是退到底線外），原本的人回到他自己的位置。這一球仍打到原本的落點。</p>
+          <p class="aside-tip">💡 快速連按技術按鈕（例如不小心按兩下「接發」）只會加一球，不會多出一記。</p>
+
+          <h3 id="zones">號位圖：每一區在畫面的哪裡</h3>
+          <div class="split zone-split">
+            <figure class="zone-map">
+              <svg viewBox="0 0 360 600" role="img" aria-labelledby="zone-title zone-desc">
+                <title id="zone-title">號位圖（我方視角）</title>
+                <desc id="zone-desc">我方在下半場：前排由左到右是 4、3、2 號位，後排是 5、6、1 號位。對方在上半場，面向我們：離網較近的一排由左到右是 2、3、4 號位，後排由左到右是 1、6、5 號位。對方 1 號位在畫面左上角。</desc>
+                <text x="180" y="30" class="zm-edge">對方底線</text>
+                <g class="zm-opp">
+                  <rect x="63" y="44" width="78" height="156" />
+                  <rect x="141" y="44" width="78" height="156" />
+                  <rect x="219" y="44" width="78" height="156" />
+                  <rect x="63" y="200" width="78" height="78" />
+                  <rect x="141" y="200" width="78" height="78" />
+                  <rect x="219" y="200" width="78" height="78" />
+                </g>
+                <g class="zm-own">
+                  <rect x="63" y="278" width="78" height="78" />
+                  <rect x="141" y="278" width="78" height="78" />
+                  <rect x="219" y="278" width="78" height="78" />
+                  <rect x="63" y="356" width="78" height="156" />
+                  <rect x="141" y="356" width="78" height="156" />
+                  <rect x="219" y="356" width="78" height="156" />
+                </g>
+                <rect x="63" y="44" width="234" height="468" class="zm-court" />
+                <path d="M48 278H312" class="zm-net" />
+                <text x="322" y="283" class="zm-side zm-start">球網</text>
+                <g class="zm-target">
+                  <circle cx="102" cy="104" r="22" />
+                  <circle cx="102" cy="104" r="7" class="zm-dot" />
+                </g>
+                <g class="zm-num zm-num-opp">
+                  <text x="102" y="160">1</text><text x="180" y="132">6</text><text x="258" y="132">5</text>
+                  <text x="102" y="249">2</text><text x="180" y="249">3</text><text x="258" y="249">4</text>
+                </g>
+                <g class="zm-num zm-num-own">
+                  <text x="102" y="327">4</text><text x="180" y="327">3</text><text x="258" y="327">2</text>
+                  <text x="102" y="444">5</text><text x="180" y="444">6</text><text x="258" y="444">1</text>
+                </g>
+                <text x="8" y="166" class="zm-side zm-start zm-opp-text">對方</text>
+                <text x="8" y="400" class="zm-side zm-start zm-own-text">我方</text>
+                <text x="180" y="534" class="zm-edge">我方底線</text>
+                <g class="zm-eye">
+                  <path d="M150 566c9-10 21-10 30-10s21 0 30 10c-9 10-21 10-30 10s-21 0-30-10z" />
+                  <circle cx="180" cy="566" r="5" />
+                </g>
+                <text x="180" y="596" class="zm-edge zm-small">你從這一邊看（我方視角）</text>
+                <text x="63" y="552" class="zm-side zm-start zm-small">← 你的左手邊</text>
+                <text x="297" y="552" class="zm-side zm-end zm-small">右手邊 →</text>
+              </svg>
+              <figcaption>藍色是我方，紅色是對方。圈起來的是對方 1 號位。</figcaption>
+            </figure>
+            <div class="split-text">
+              <p>結果卡片會說球「落在對方 6 號區（後排中間）」。左邊這張圖，就是你在<b class="ui">我方視角</b>看到的方向：我方在下面，對方在上面。</p>
+              <ul>
+                <li><b>我方 1 號位在右後</b>（畫面右下）。</li>
+                <li><b>對方 1 號位在畫面的左上角。</b>對方面向我們站，所以他們的「右後」在我們的左邊。</li>
+                <li>離網 3 公尺內是前排，其他是後排；左右各分三等份。</li>
+                <li>「號位」和「號區」說的是同一塊位置：擺站位時說號位，結果卡片說號區。</li>
+                <li>不用背：<b>瞄準時場上會直接標出 1–6 號區</b>，滑鼠旁也會寫「對方 1 號區」。</li>
+                <li>寬螢幕的<b class="ui">俯視</b>是橫的：我方在左、對方在右，我方 1 號位在左下、對方 1 號位在右上（見<a href="#players">第 3 章</a>的圖）。手機上的俯視是直的，對方在上。</li>
+                <li>切到<b class="ui">對方視角</b>時，整張圖會上下左右反過來。</li>
+              </ul>
+              <p><b>例：讓發球打到對方 1 號位</b>——按「加下一球」的發球，在我方視角點對方場地左後角（圖中圈起來的那一區），看到「對方 1 號區」再點。</p>
+            </div>
+          </div>
+
+          <h3 id="aim">瞄準落點</h3>
+          <p>加好一球後，Courtline 會先瞄一個這種球常見的落點（例如發球瞄對方後場中間、接發瞄網前），並把工具切到<b class="ui ui-aim">瞄準落點</b>，讓你<b>點一次</b>：</p>
+          <ol>
+            <li>在球場上<b>點你想讓球落下的位置</b>。按住拖曳的話，球路會跟著滑鼠即時預覽，放開就確定。</li>
+            <li>Courtline 自動算出球速、擊球角度和方向，球場下方跳出「已瞄準：界內，落在…」的提示。</li>
+            <li>點完一次就回到<b class="ui">選取</b>。想再改，按右側結果卡片下面的大按鈕<b class="ui ui-aim">瞄準落點</b>，或按 <kbd>T</kbd>；不想改就按 <kbd>Esc</kbd>。</li>
+            <li>瞄準時<b>地板優先</b>：點到球員的名牌或身上，也是瞄準那個位置的地板（不會自動吸到球員身上）。要選某位球員，先按 <kbd>Esc</kbd> 回到選取，再點他。</li>
+          </ol>
+          <figure class="shot">
+            <a class="zoom" href="manual/aim-top.png"><img src="manual/aim-top.png" width="899" height="524" loading="lazy" alt="寬螢幕的俯視，瞄準模式：雙方場地標出 1 到 6 號區，發球從我方左下角底線外出發，黃色球路落在對方場地右上角，游標旁寫著「對方 1 號區」，落點標著「界內」。" /></a>
+            <figcaption>俯視時看得最清楚：發球落在對方 1 號區（寬螢幕的俯視在右上角）。</figcaption>
+          </figure>
+
+          <h3 id="drag-landing">不切工具也能改：拖曳落點圈</h3>
+          <p>在<b class="ui">選取</b>模式下，選中的那一球在場上有一個<b>落點圈</b>：落地的球是地上的落點標記（界內綠色、出界紅色的十字圈，滑鼠移上去會亮起白光）；被隊友在空中接走的球，是接球的人手上的<b>橘色接球圈</b>。<b>按住這個圈拖到新位置再放開</b>，就等於重新瞄準：球路跟著預覽，放開才確定；接這一球的人也會跟著移到新的接球點。只是點一下圈不會有任何變化（不會選人、也不會改落點）。</p>
+          <div class="callout note">
+            <p class="callout-title">📌 圈上站著人時，按到的是人</p>
+            <p>如果圈上剛好站著一位<b>不接這一球</b>的球員，或有球員的名牌浮在圈上（例如快速上手裡發到對方 1 號區、還沒加接發時，落點就在對1腳下），按下去會選到那位球員、拖曳會移動他，落點不變。這時改用<b class="ui ui-aim">瞄準落點</b>（<kbd>T</kbd>）重新點一次；如果只是名牌擋住，切到<b class="ui">俯視</b>就能直接拖圈。</p>
+          </div>
+
+          <div class="callout tip">
+            <p class="callout-title">💡 瞄準只改球速和方向</p>
+            <p>瞄準時會依技術選自然的弧線：舉球打高弧、攻擊壓低角度往下打、發球取能過網的最低弧線。瞄準只會改<b>球速、擊球角度和方向</b>，你設定的旋轉和擊球點不會變。</p>
+          </div>
+          <div class="callout warn">
+            <p class="callout-title">⚠️ 點的地方打不到？</p>
+            <p>例如太遠、離擊球者不到 30 公分、會先掛網，Courtline 會用一句話告訴你原因；能打到附近的話，會先用最接近的一球。發球、攻擊和自由球如果要打成<b>超過 8 公尺高的高吊球</b>才落得到（通常是點得離網太近），會直接拒絕並提示「請點離網遠一點的位置」。<b>被拒絕時工具仍停在<b class="ui ui-aim">瞄準落點</b></b>，球路不變，直接再點一個離網遠一點的位置就好。</p>
+          </div>
+          <div class="callout note">
+            <p class="callout-title">📌 改落點，後面的回合會跟著留住</p>
+            <p>重新瞄準一球時，原本接這一球的下一個人會<b>跟著移到新的接球點</b>，他那一球也會重新瞄準原本的落點，所以回合後面不變。新的落點已經不在他那一邊時，他不動，並提示「X 接不到這顆球了，下一記仍從原本的位置打出。」</p>
+          </div>
+        </section>
+
+        <!-- ===================================================================== 5 -->
+        <section class="chapter" id="air" aria-labelledby="h-air" data-keywords="空中 傳遞 交接 接球 傳到 傳到位 攔下 攔網 接球高度 半空中 跑位 插入 跑位步驟 吊球">
+          <h2 id="h-air"><span class="ch-no" aria-hidden="true">5</span>球怎麼在空中傳遞</h2>
+          <p class="lede">真實的排球很少落地才打。Courtline 也一樣：下一個人跑到球下面，在空中接到，再把球打出去。</p>
+
+          <h3>交接：「傳到 X」</h3>
+          <p>
+            每一球都有自己的擊球高度：接發約離地 0.9 公尺、舉球 2.4 公尺、攻擊 3 公尺、攔網 3.1 公尺、防守 0.8 公尺。加下一球時，下一個人會在上一步<b>跑到上一球往下穿過這個高度的位置</b>，在那裡接球。這時上一球就在他手上結束：
+          </p>
+          <ul>
+            <li>結果卡寫<span class="tag tag-good">傳到 對3</span>和「對3 在離地 2.4 公尺處接到球」，四個數字的前兩項換成<b>飛到 對3</b>（幾秒）和<b>接球高度</b>。</li>
+            <li>球場上，球停在接球的人手上，那裡有一個橘色的接球圈；之後的球路、落點、接球範圍和「誰接得到？」都不再畫。</li>
+            <li>交給<b>對方</b>的球（例如發球被對方接起）照落地來判斷界內或出界，說明最後加一句「對1 在離地 0.9 公尺處接起。」</li>
+          </ul>
+          <figure class="shot wide">
+            <a class="zoom" href="manual/rally-side.png"><img src="manual/rally-side.png" width="983" height="327" loading="lazy" alt="側面視角，示範戰術的第 2 步：對5 的接發從右邊的低處往上飛，越過頭頂，停在網前 對2 舉起的雙手上，那裡有一個橘色的接球圈。" /></a>
+            <figcaption>側面看最清楚：對5 的接發飛到網前，停在 對2 的手上（橘色圈）。下一步 對2 從那裡把球舉出去。</figcaption>
+          </figure>
+
+          <h3>還沒有人接：「傳到位」</h3>
+          <p>接發、舉球、防守這種傳給隊友的球，如果後面還沒有下一球，結果卡會寫<span class="tag tag-good">傳到位</span>，告訴你球在多高、落到哪一區附近，並提醒「加一記「舉球」，就會有人在這裡接」（舉球之後則是「攻擊」）；四個數字的第二項寫<b>傳球高度</b>。照著加，下一個人就會自己跑過去，在空中接到這一球。加完後下方步驟上那一步後面沒有人名的話，看<a href="#faq-noname">常見問題</a>。</p>
+          <div class="mini-pair">
+            <figure class="shot">
+              <a class="zoom" href="manual/pass-pending.png"><img src="manual/pass-pending.png" width="363" height="320" loading="lazy" alt="綠色結果卡片：傳到位，球在離地 2.4 公尺落到對方 3 號區附近。加一記「舉球」，就會有人在這裡接。下面是飛行時間、傳球高度 2.4 公尺、最高點、出手球速。" /></a>
+              <figcaption>接發後面還沒加舉球：「傳到位」，第二個數字是傳球高度。</figcaption>
+            </figure>
+            <figure class="shot">
+              <a class="zoom" href="manual/pass-handed.png"><img src="manual/pass-handed.png" width="363" height="351" loading="lazy" alt="綠色結果卡片：傳到 對3，對3 在離地 2.4 公尺處接到球。" /></a>
+              <figcaption>加了舉球之後：「傳到 對3」，第二個數字變成接球高度。</figcaption>
+            </figure>
+          </div>
+
+          <h3>攔網：「被 X 攔下」</h3>
+          <p>攻擊之後加<b class="ui">攔網</b>，防守方前排離過網點最近的人會移到網前，在網上把攻擊攔住。攻擊那一球的結果卡會寫<span class="tag tag-bad">被 我2 攔下</span>；攔網那一球再決定球彈到哪裡。</p>
+          <figure class="shot">
+            <a class="zoom" href="manual/pass-blocked.png"><img src="manual/pass-blocked.png" width="363" height="461" loading="lazy" alt="紅色結果卡片：被 我2 攔下，球在網上被 我2 攔住（離地 2.9 公尺），下面是飛到 我2 的時間、過網、最高點、出手球速和誰接得到。" /></a>
+            <figcaption>第 1 章的回合（對4 攻擊）之後加攔網：攻擊被 我2 攔下。</figcaption>
+          </figure>
+
+          <h3 id="run-before">為什麼「加一段跑位」會插在球的前面？</h3>
+          <p>
+            在空中連續傳遞的一串球（例如發球 → 接發 → 舉球），每一球都在下一個人手上結束，中間沒有時間再讓大家跑位。所以停在這一串裡的某一步按<b class="ui">加一段跑位</b>時，Courtline 會把跑位<b>放在這一串的前面</b>（例如發球之前），並提示「這一串球在空中連續傳遞，跑位插進中間會打斷它，所以放在這一串的前面」。把球員拖到新位置，播放時他們會先跑過去，再開始這一串。
+          </p>
+        </section>
+
+        <!-- ===================================================================== 6 -->
+        <section class="chapter" id="results" aria-labelledby="h-results" data-keywords="結果 界內 出界 掛網 沒過網 落地 號區 號位 飛行時間 過網 沒有經過網子 最高點 球速 誰接得到 接得到 接不到 接球範圍 圓錐 上手 低手 扇形 手臂伸直 接球習慣 胸口 反應 頭頂 標籤 顏色 綠點 紅點 黃點 吊球 球還沒落地 傳到 這球過網了 擊球點太低 還沒有人打這一球 沒有擊球者 球的數值 即時數值 球離地 球高度 球速 球位置 拖時間條 時間條 數值卡 收起 手機">
+          <h2 id="h-results"><span class="ch-no" aria-hidden="true">6</span>讀懂結果</h2>
+          <p class="lede">每一球的結果都在右側「擊球」分頁的結果卡片上。改任何設定，結果會立刻更新，不用按計算。</p>
+
+          <div class="split">
+            <figure class="shot panel">
+              <a class="zoom" href="manual/shot-result.png"><img src="manual/shot-result.png" width="372" height="623" loading="lazy" alt="綠色結果卡片（第 1 章回合的發球）：「界內，落在對方 1 號區（後排右側）。對1 在離地 0.9 公尺處接起。」列出飛到 對1、過網、最高點、出手球速，下面是誰接得到的名單，最下面是「瞄準落點」大按鈕。" /></a>
+              <figcaption>結果卡片：大字是結論，下面是細節。</figcaption>
+            </figure>
+            <div class="split-text">
+              <h3>大字結論</h3>
+              <dl class="verdicts">
+                <div><dt><span class="tag tag-good">界內</span></dt><dd>球落在場內，並說出落在哪一區，例如「落在對方 6 號區（後排中間）」。壓線也算界內，會寫「壓線，」。</dd></div>
+                <div><dt><span class="tag tag-good">傳到 X</span></dt><dd>隊友在空中接到了，見<a href="#air">第 5 章</a>。</dd></div>
+                <div><dt><span class="tag tag-good">傳到位</span></dt><dd>傳給隊友的球已經到位，但還沒加下一球。</dd></div>
+                <div><dt><span class="tag tag-bad">出界</span></dt><dd>告訴你超出多少，例如「超出對方底線約 80 公分」。</dd></div>
+                <div><dt><span class="tag tag-bad">掛網</span></dt><dd>球還沒過網就碰到網子。</dd></div>
+                <div><dt><span class="tag tag-bad">沒過網</span></dt><dd>發球、攻擊或自由球落在自己的場內。</dd></div>
+                <div><dt><span class="tag tag-bad">被 X 攔下</span></dt><dd>攻擊在網上被對方攔網攔住。</dd></div>
+                <div><dt><span class="tag tag-warn">這球過網了</span></dt><dd>接發、舉球、防守本來要傳給隊友，卻飛過網了。真的要送過網，把技術改成「自由球」。</dd></div>
+                <div><dt><span class="tag tag-warn">變成吊球</span></dt><dd>攻擊是往上打出去的，比較像吊球。把擊球點調高，或讓前一球（舉球）舉高一點。</dd></div>
+                <div><dt><span class="tag tag-warn">球還沒落地</span></dt><dd>4 秒內沒有落地，通常是角度或擊球點太高。</dd></div>
+                <div><dt><span class="tag tag-warn">擊球點太低</span></dt><dd>球一出手就碰到地板，把擊球高度調高。</dd></div>
+                <div><dt><span class="tag tag-warn">還沒有人打這一球</span></dt><dd>這一球沒有擊球者（例如找不到合適的人，或打這一球的球員被移除了）。在下方「擊球者」選一位球員，球才會從他手上出發。</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <h3>四個數字</h3>
+          <ul class="tight">
+            <li><b>飛行時間</b>：球從擊出到落地幾秒。被隊友接走的球改寫<b>飛到 X</b>：飛到他手上幾秒。</li>
+            <li><b>過網</b>：經過網子時高出網頂幾公分。低於網頂會寫「低於網頂 n 公分」；寫「<b>沒有經過網子</b>」表示這一球留在同一邊；寫「沒過網」就是掛網了。被隊友接走的球改寫<b>接球高度</b>。</li>
+            <li><b>最高點</b>：整段飛行最高到幾公尺。</li>
+            <li><b>出手球速</b>：球被擊出時的速度，以 km/h 表示。</li>
+          </ul>
+
+          <h3 id="reach">誰接得到？</h3>
+          <p>
+            結果卡片下方會列出落點那半場的球員（不含擊球者）。每個人一行：<span class="tag tag-good">接得到</span>表示球員有辦法碰到這一球，<span class="tag tag-muted">接不到</span>就是趕不上。判斷的方式是：
+          </p>
+          <ul class="tight">
+            <li><b>胸口前面有一個「接球範圍」。</b>它是一個圓錐，尖端在胸口，正對著擊球的人打球的位置（不是往下斜、也不是扁的）。錐的粗細由「錐張開角度」決定（從中線到錐邊，預設 60 度）。錐的長度只算雙手併攏、手臂伸直能碰到的距離（預設 0.70 公尺），不把撲出去算進去。球只要飛進這個錐裡，就碰得到。</li>
+            <li><b>上面用上手、下面用低手。</b>從擊球的方向看過去，圓錐的圓形截面分成上下兩個扇形：上方的扇形是用上手（過頭）接，預設 100 度；其餘的 260 度是用低手（下手）接，兩邊加起來永遠是 360 度。每個人的習慣不同，例如不用上手接球的球員，把「用上手接球」關掉，就只剩下方的大扇形。上手和低手都關掉，這個人就什麼球都接不到。</li>
+            <li><b>球員不一定站著不動。</b>球被擊出後，球員先反應一下（預設 0.20 秒），然後從站著開始加速跑，大約一秒多才到全速（第一秒大約跑 2 公尺）。他跑到哪裡，接球範圍就跟到哪裡，而且錐的方向維持擊球那一刻對著擊球點的方向，不會隨著他跑動而轉。只要球在落地前有任何一刻，飛進他跑得到的那個範圍，就算接得到。</li>
+            <li><b>起點是擊球那一刻</b>大家站的位置。只看球在球員自己這半場的那一段，不會去接對面場地上的球。</li>
+            <li><b>每個人可以有自己的習慣。</b>沒特別設定時，全隊用同一組接球範圍；個別球員（例如不用上手接球的人）可以到<a href="#players">球員分頁</a>的「接球習慣」另外調整，只影響他一個人。</li>
+          </ul>
+          <p>每一行的小字說明了細節：</p>
+          <ul class="tight">
+            <li><b>「離地 1.1 公尺接」</b>：球員在球離地大約這個高度時碰到它。能在離地 30 公分以上碰到，就不會等到球快落地才接；寫著很低的數字，代表只能貼地救球。</li>
+            <li><b>「要跑 3.6 公尺」</b>：他得先跑這麼遠才碰得到；沒寫就是站在原地就碰得到。</li>
+            <li><b>「差 2.0 公尺」</b>：接不到的人，離能碰到球最近的那一刻還差這麼遠。</li>
+          </ul>
+          <p>排列順序：接得到的人在前面，先碰到球的排前面；接不到的人在後面，差得少的排前面。用來快速檢查防守站位有沒有漏洞。</p>
+          <figure class="shot wide">
+            <a class="zoom" href="manual/reach-cone.png"><img src="manual/reach-cone.png" width="440" height="350" loading="lazy" alt="球場上選了發球的畫面，放大對方後排左側：對1 胸口前有一個橘黃色半透明的短圓錐，朝發球的方向伸出，在畫面上看起來像一個小圓頂，一部分被「界內」標籤蓋住；黃色球路從旁邊飛過，球路上有一個小圓點標出碰球的位置。" /></a>
+            <figcaption>選了一球、沒有在播放時，球場上會畫出第一個碰到球的人的接球範圍（橘黃色的錐）：尖端在他的胸口，對著擊球點，長度只有一隻手臂這麼長，所以看起來很短；球路上的小圓點是碰到球的地方。沒有人接得到時就不畫。</figcaption>
+          </figure>
+          <p>
+            球場上，那些球員頭頂的名牌也會加上同樣的「接得到」或「接不到」（<a href="#start">第 1 章第 4 步</a>的圖可以看到）。被隊友在空中接走的球不列名單。判斷標準（跑多快、反應多久、錐的粗細和長度、上手與低手的比例）可以在<a href="#settings">進階設定</a>裡調整，那是全隊的預設；個別球員的習慣在<a href="#players">球員分頁</a>調整。
+          </p>
+
+          <h3>小圓點的顏色</h3>
+          <p>下方步驟上有一個小圓點，不用點開就知道每一球的結果：</p>
+          <ul class="dots">
+            <li><span class="dot dot-good" aria-hidden="true"></span>綠色：界內、傳到 X、傳到位</li>
+            <li><span class="dot dot-bad" aria-hidden="true"></span>紅色：出界、掛網、沒過網、被攔下</li>
+            <li><span class="dot dot-warn" aria-hidden="true"></span>黃色：球還沒落地、擊球點太低、這球過網了、變成吊球、還沒有人打這一球</li>
+          </ul>
+
+          <h3 id="readout">球的即時數值</h3>
+          <p>只要場上看得到球，球場左上角就有一張<b>球的數值</b>小卡。播放時它跟著球一直更新；<b>拖時間條</b>時，球在哪裡、飛多高、多快，數字也一起變，所以停在任何一刻都能直接讀。</p>
+          <figure class="shot wide">
+            <a class="zoom" href="manual/ball-readout.png"><img src="manual/ball-readout.png" width="983" height="654" loading="lazy" alt="示範戰術播放到 0.6 秒：發球員 我1 剛把球拋起。左上角的「球的數值」小卡（青色框）寫著「拋球中、第 1 步・發球・我1、整段 0.60 秒、高度 3.80 公尺上升、我方底線外 1.55 公尺、速度 4 km/h」。" /></a>
+            <figcaption>發球員拋球的那一刻：球還沒被打出去，所以「這一球」的秒數是 --。</figcaption>
+          </figure>
+          <ol>
+            <li>按<b class="ui">播放</b>，眼睛看左上角的小卡，數字會跟著球動。</li>
+            <li>想看某一刻，按暫停或<b>拖下方的時間條</b>，停在你要的地方，直接讀小卡。</li>
+            <li>想讓小卡讓出位置，按右上角的 <b>×</b> 收起，它會縮成一顆「球的數值」小按鈕，按一下再打開。手機畫面上它是一條單行。</li>
+          </ol>
+          <p>小卡上的每一行：</p>
+          <ul class="tight">
+            <li><b>狀態</b>（最上面的小標籤）：拿著球、拋球中、飛行中、已落地、掛網、被 X 接到，或等人接。旁邊寫這是第幾步、哪一球、誰打的，例如「第 3 步・舉球・我2」。</li>
+            <li><b>時間</b>：「整段」從整個戰術開始算；「這一球」從這一球被打出去才開始算（拋球時還是 --）。兩位小數。</li>
+            <li><b>高度</b>：球離地幾公尺，後面寫上升或下降。</li>
+            <li><b>位置</b>：球在哪一區、離網和離邊線（或底線）幾公尺；下面一行小字是精確座標。</li>
+            <li><b>速度</b>：幾 km/h，括號裡是每秒幾公尺。</li>
+          </ul>
+        </section>
+
+        <!-- ===================================================================== 7 -->
+        <section class="chapter" id="tweak" aria-labelledby="h-tweak" data-keywords="微調 輸入框 數字框 輸入數字 打數字 打字 輸入 鎖落點 固定落點 擊球點 擊球角度 角度 鎖住數字 球速 角度 方向 旋轉 上旋 飄球 下旋 轉速 擊球高度 擊球點 刪除 滑桿 精確 跳發 跳起 換人 擊球者 發球動作 拋球 助跑 起跳 跳飄 跳發 站著發 拋球高度 跳躍高度 跳起 自動跳起 起跳後幾秒擊球 發球類型 速度 鎖 上鎖 鎖住 解鎖 鎖頭 力道 起跳點 落地點 連動 連帶改變 已調到極限 互相影響 攻擊動作 攻擊跳躍 快攻 強攻 往前飛 後排攻擊 助跑 自動跳起">
+          <h2 id="h-tweak"><span class="ch-no" aria-hidden="true">7</span>手動微調一記球</h2>
+          <p class="lede">想要更精準的控制，就在「這一記怎麼打」直接調整。拖動滑桿時，球路和結果會跟著即時改變。</p>
+
+          <h3 id="type-number">不想拉滑桿：直接輸入數字</h3>
+          <p>每一條滑桿的<b>右邊都有一個數字框</b>，已經知道要的數字時，直接打進去，不必慢慢拉滑桿。</p>
+          <ul>
+            <li>打好數字，按 <kbd>Enter</kbd>（或點一下框外面的地方）就會套用；按 <kbd>Esc</kbd> 取消，數字會回到原本的。</li>
+            <li>打的數字超出範圍，會自動拉到最接近的上限或下限，不會報錯。</li>
+            <li>框後面的小字是單位。打進去的數字，跟滑桿上方大字顯示的是同一種：例如球速打 km/h、角度打度、時間打秒、距離打公尺。</li>
+            <li>用數字框改一次，算一個動作：按一次 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 就退回去。鎖住的列，數字框也會暫時停用；會連動的數字，照樣跟著變。</li>
+          </ul>
+          <p>有幾個數字有正負。把滑鼠移到數字框上，會跳出一句說明正負的意思：</p>
+          <ul>
+            <li><b>方向</b>（度）：正的偏右、負的偏左，從擊球者的角度看；0 是正前方。</li>
+            <li><b>擊球角度</b>（度）：正的往上，負的往下。</li>
+            <li><b>球員位置「離我方底線」</b>（公尺）：負的是在我方底線後面，大於 18 是在對方底線後面。</li>
+            <li><b>發球的起跳點</b>（公尺）：正的在底線後面，負的踩進場內（犯規）。<b>發球的落地點</b>（公尺）：正的落在場內，負的落在底線後面。<b>開始助跑</b>（秒）：正的是拋球後才跑，負的是拋球前就跑。</li>
+            <li><b>攻擊的起跳點與落地點</b>（公尺）：正的離網多遠，負的是越過中線（犯規）。</li>
+          </ul>
+          <p>跳躍高度是 0（不跳）時，和跳躍有關的幾條滑桿上方寫「不跳」，它們的數字框是空的、不能打字；先把跳躍高度設成大於 0，才能輸入。</p>
+
+          <div class="split">
+            <figure class="shot panel">
+              <a class="zoom" href="manual/shot-controls.png"><img src="manual/shot-controls.png" width="372" height="1274" loading="lazy" alt="「這一記怎麼打」區塊，上面的結果列也在圖裡：技術、擊球者兩個選單，球速、擊球角度、方向三個滑桿，旋轉的上旋／飄球／下旋，擊球高度滑桿；每條滑桿右邊都有一個數字框（單位寫在框後面），每一列右邊都有鎖頭，圖中鎖住了「落點」和「旋轉」，滑桿下面一句寫「連帶改變：球速、飛行時間、最高點、過網高度」。" /></a>
+              <figcaption>「這一記怎麼打」的所有設定。每一列右邊的鎖頭可以鎖住那個數字；圖中鎖住了落點和旋轉。</figcaption>
+            </figure>
+            <div class="table-wrap">
+              <table class="ref">
+                <caption class="sr-only">「這一記怎麼打」的每個設定</caption>
+                <thead><tr><th scope="col">設定</th><th scope="col">意思</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">技術</th><td>這一球的名稱，例如把「防守」改成「自由球」。只改名字，不會改動球路。</td></tr>
+                  <tr><th scope="row">擊球者</th><td>誰打這一球。換人後，新選的人會跑到原本打這一球的位置（在空中接上一球的，就跑到同一個接球點；發球就退到底線外），原本的人回到自己的位置；球仍打到原本的落點，播放時由新選的人做擊球動作。</td></tr>
+                  <tr><th scope="row">球速</th><td>擊出時的速度，以 km/h 顯示。</td></tr>
+                  <tr><th scope="row">擊球角度</th><td>「往上」或「往下」幾度，旁邊寫向下扣、平直、中等弧度或高弧度。</td></tr>
+                  <tr><th scope="row">方向</th><td>「偏左」或「偏右」幾度，<b>從擊球者的角度看</b>。</td></tr>
+                  <tr><th scope="row">旋轉</th><td><b>上旋</b>：球往前翻滾，下墜較快。<b>飄球</b>：不旋轉。<b>下旋</b>：球往後翻滾，飛得較飄。選上旋或下旋時，可以再調<b>轉速</b>。</td></tr>
+                  <tr><th scope="row">擊球高度</th><td>擊球點離地多高。旁邊會提示這是低手、站著，還是跳起擊球的高度。</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <h3>移動擊球點</h3>
+          <p>擊球點就是場上那個<b>黃色的圈</b>，球從這裡被打出去。有三種方法可以移動它：</p>
+          <ul>
+            <li>在<b class="ui">選取</b>模式下，直接拖曳黃色的圈。</li>
+            <li>按左側<b class="ui">擊球點</b>（<kbd>R</kbd>），再點球場或拖曳。<b>擊球者會跟著擊球點一起移動</b>（他就站在擊球的地方）。高度在右側「擊球高度」調整。</li>
+            <li>展開<b class="ui">精確數據與擊球位置</b>，用「擊球點：離我方底線」「擊球點：離左邊線」滑桿微調，也能看到所有精確數字。</li>
+          </ul>
+
+          <h3 id="serve-motion">發球動作：拋球、助跑、起跳</h3>
+          <p>新加的發球預設就會顯示發球員<b>拋球、助跑、跳起</b>，再把球打出去。三件事<b>各自獨立</b>：可以邊跑邊拋球，跳起來之後也不會馬上擊球。</p>
+          <figure class="shot">
+            <a class="zoom" href="manual/serve-motion.png"><img src="manual/serve-motion.png" width="363" height="715" loading="lazy" alt="右側的「發球動作」區塊：勾選「顯示拋球、助跑、起跳」，下面是發球類型（站著發、跳飄、跳發）和拋球高度、助跑距離、開始助跑、跳躍高度、起跳後幾秒擊球、力道、起跳點、落地點等滑桿（每條右邊都有數字框），每一列右邊都有一個鎖頭（圖中鎖住了落地點和力道），最下面一句摘要寫「拋球後 1.12 秒擊球；助跑 1.50 公尺用 0.72 秒；球最高拋到 3.80 公尺」。" /></a>
+            <figcaption>選到一記發球時，右側「擊球」分頁的「發球動作」區塊。</figcaption>
+          </figure>
+          <ol>
+            <li>點一記<b>發球</b>，在右側「擊球」分頁往下找到<b class="ui">發球動作</b>。</li>
+            <li>勾選<b class="ui">顯示拋球、助跑、起跳</b>。取消勾選，發球員就直接站在擊球點把球打出去。</li>
+            <li>先點一種<b class="ui">發球類型</b>：站著發（飄球）、跳飄、跳發（大力）。一鍵套好；自己再調過就顯示「自訂」。</li>
+            <li>需要的話再微調：
+              <ul class="tight">
+                <li><b>拋球高度</b>：球比擊球點高多少。拋得越高，從拋球到擊球等得越久。</li>
+                <li><b>助跑距離</b>：從擊球點往後退多遠開始跑。0 就是站著發。</li>
+                <li><b>開始助跑</b>：拋球後幾秒起跑；負數代表先跑再拋球。</li>
+                <li><b>跳躍高度</b>：腳離地多高，0 就是不跳。</li>
+                <li><b>起跳後幾秒擊球</b>：腳離地到打到球隔多久，越短越在剛跳起時就打（要先設跳躍高度）。</li>
+                <li><b>助跑速度、力道、起跳點、落地點</b>：這四個是算出來的，也可以直接拉。力道是起跳的速度（例如「起跳速度 每秒 4.58 公尺」）；起跳點寫「底線後 0.80 公尺」，踩進場內會寫「踩進場內 0.20 公尺（犯規）」；落地點寫「場內 0.60 公尺」或「底線後 0.30 公尺」。</li>
+              </ul>
+            </li>
+            <li>按播放（或拖時間條）看結果。區塊最下面的一句摘要會告訴你「拋球後幾秒擊球、助跑多遠用多久」；時間排不通，或跑得比一般球員衝刺還快（每秒約 7 公尺）時，會用黃字提醒。</li>
+          </ol>
+          <figure class="shot">
+            <a class="zoom" href="manual/serve-jump.png"><img src="manual/serve-jump.png" width="502" height="442" loading="lazy" alt="側面視角：發球員 我1 已經離地跳起，球剛好在他手的上方，還沒有被打出去。" /></a>
+            <figcaption>側面視角停在擊球前一刻：發球員已經跳起，球還在他手上方。</figcaption>
+          </figure>
+          <h4 id="coupled-jump">跳躍的數字互相影響，可以上鎖</h4>
+          <p>跳躍的<b>高度、起跳點、力道、落地點</b>是綁在一起的：跳得越高，在空中停得越久，往前飄的距離也跟著變；力道越大，要嘛跳得更高，要嘛飄得更遠。所以你改其中一個，另外幾個會一起動。發球員這一串動作的順序是：等待點 → 助跑 → 起跳點 → 擊球點 → 落地點，助跑跑到起跳點就結束。</p>
+          <figure class="shot">
+            <svg viewBox="0 0 520 190" role="img" aria-labelledby="jd-title jd-desc" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;font-family:inherit">
+              <title id="jd-title">發球員的動線（側面示意）</title>
+              <desc id="jd-desc">由左到右：等待點、助跑、起跳點在底線後面，球在擊球點被打出去，最後落在場內的落地點。底線在起跳點和擊球點之間。</desc>
+              <rect x="190" y="130" width="320" height="26" rx="4" style="fill:currentColor;opacity:.12" />
+              <path d="M10 130H510" style="stroke:currentColor;opacity:.45;stroke-width:2;fill:none" />
+              <path d="M190 40V156" style="stroke:#e0a200;stroke-width:3;stroke-dasharray:6 4;fill:none" />
+              <text x="190" y="30" text-anchor="middle" style="fill:currentColor;font-size:13px;font-weight:700">底線</text>
+              <text x="350" y="150" text-anchor="middle" style="fill:currentColor;font-size:12px;opacity:.7">場內</text>
+              <text x="90" y="150" text-anchor="middle" style="fill:currentColor;font-size:12px;opacity:.7">底線後</text>
+              <path d="M40 130H150" style="stroke:#2f7bd9;stroke-width:5;stroke-linecap:round;fill:none" />
+              <path d="M150 130C175 50 245 50 300 130" style="stroke:#2f7bd9;stroke-width:3;stroke-dasharray:2 6;stroke-linecap:round;fill:none" />
+              <circle cx="40" cy="130" r="7" style="fill:#2f7bd9" />
+              <circle cx="150" cy="130" r="7" style="fill:#2f7bd9" />
+              <circle cx="300" cy="130" r="7" style="fill:#2f7bd9" />
+              <circle cx="228" cy="62" r="9" style="fill:#e0a200" />
+              <text x="40" y="176" text-anchor="middle" style="fill:currentColor;font-size:13px">①等待點</text>
+              <text x="95" y="112" text-anchor="middle" style="fill:currentColor;font-size:13px">②助跑</text>
+              <text x="150" y="176" text-anchor="middle" style="fill:currentColor;font-size:13px">③起跳點</text>
+              <text x="228" y="42" text-anchor="middle" style="fill:currentColor;font-size:13px">④擊球點</text>
+              <text x="300" y="176" text-anchor="middle" style="fill:currentColor;font-size:13px">⑤落地點</text>
+              <text x="220" y="100" text-anchor="middle" style="fill:currentColor;font-size:12px;opacity:.75">高度・力道</text>
+            </svg>
+            <figcaption>發球員沿著底線方向的動線：助跑到起跳點就結束，在空中往前飄，擊球後落在落地點。</figcaption>
+          </figure>
+          <p><b>上鎖：</b>每一列的右邊都有一個小鎖頭（每一記球的數字也能鎖，見<a href="#shot-locks">鎖住數字</a>）。鎖住的數字，在你調其他數字時<b>絕對不會變</b>；沒鎖的數字會盡量少動，只動必要的幾個。右側會有一句「連帶改變：落地點、力道」告訴你哪些數字跟著動，剛動過的列會閃一下。鎖住的那一列，滑桿和數字框會暫時停用，要改先解鎖。</p>
+          <p><b>例子一：鎖落地點和力道，再把跳躍高度調高。</b>先按「落地點」和「力道」旁的鎖頭，再把<b class="ui">跳躍高度</b>從 0.45 調到 0.48 公尺。落地點和力道不能動，所以 Courtline 會讓他少往前飄一點，並且<b>起跳後幾秒擊球</b>跟著變短（約從 0.30 秒變成 0.23 秒）：跳得更高，要在同樣的位置落地，就得更早在空中把球打出去。</p>
+          <p><b>例子二：跑動時機也有鎖。</b>在<a href="#run-timing">這一步的跑動時機</a>鎖住<b>跑動速度</b>，再把<b>起跑延遲</b>從 0 改成 0.30 秒：他跑的速度不變，所以會晚 0.30 秒到位，「到位」那一列跟著改變。</p>
+          <p><b>「已調到極限」是什麼意思：</b>你要的數字，被別的鎖住的數字（或物理上限）擋住了，做不到。這時 Courtline 會盡量往你要的方向走到最遠，停在那裡，並寫出「已調到極限：被鎖住的「力道」「落地點」擋住了」。想繼續調，就把它點名的那幾個鎖打開。例如上面的例子把跳躍高度調到 0.60 公尺，力道鎖著就辦不到。</p>
+          <p class="aside-tip">💡 鎖住只管你在這一區調數字的時候。如果你改的是別的東西（例如擊球點、網高），算出來的數字（像助跑速度）還是可能跟著變。換「發球類型」不會解開鎖。每按一次鎖頭，<kbd>Ctrl</kbd>+<kbd>Z</kbd> 可以復原一次。</p>
+
+          <p>要知道的幾件事：</p>
+          <ul class="tight">
+            <li>發球員助跑前站的位置，和擊球點不是同一個點：點起始站位時，他站在<b>助跑的起點</b>。<b>拖他等於整個發球一起平移</b>，擊球點也跟著動。</li>
+            <li>發球打出去的那一刻，才算「球開始移動」；拋球期間其他人都不動。</li>
+            <li>擊球之後，發球員要等<b>落地</b>，才從<b>落地點</b>開始往下一個位置跑。</li>
+            <li>攔網的球員，在擊球位置高過站著能碰到的高度（約 2.35 公尺）時，會<b>自動跳起</b>，最高點剛好在擊球那一刻，不用另外設定。攻擊的跳法可以自己設，見下一節<a href="#attack-motion">攻擊動作</a>。</li>
+          </ul>
+
+          <h3 id="attack-motion">攻擊動作：跳躍與擊球</h3>
+          <p>攻擊也能像發球一樣，設定<b>怎麼跳、什麼時候擊球</b>：攻擊手先<b>助跑到起跳點</b>，跳起來，在空中把球打出去，接著往前飄一小段，再落地。不動它的時候，攻擊手還是用原本的自動跳法。</p>
+          <figure class="shot">
+            <a class="zoom" href="manual/attack-motion.png"><img src="manual/attack-motion.png" width="363" height="996" loading="lazy" alt="右側的「攻擊動作」區塊：最上面是跳法（自動、快攻、強攻、往前飛、自訂），下面是跳躍高度、起跳後幾秒擊球、起跳點、力道、落地點五個滑桿，每條滑桿右邊都有數字框，每一列右邊都有鎖頭（圖中鎖住了落地點），滑桿下面一句「連帶改變：力道、起跳點」，最下面一段摘要寫助跑多遠用多久，以及起跳後幾秒擊球、手大約搆到幾公尺。" /></a>
+            <figcaption>選到一記攻擊時，右側「擊球」分頁的「攻擊動作」區塊（圖中鎖住了落地點，再把跳躍高度調高）。</figcaption>
+          </figure>
+          <ol>
+            <li>點一記<b>攻擊</b>，在右側「擊球」分頁往下找到<b class="ui">攻擊動作</b>。</li>
+            <li>先選一種<b class="ui">跳法</b>：
+              <ul class="tight">
+                <li><b>自動（看擊球高度）</b>：不用設定，什麼都沒存。球員原地往上跳，跳到最高點時剛好擊球；擊球點低到不用跳，他就不跳。新加的攻擊一開始就是這個。</li>
+                <li><b>快攻</b>：跳得低，一跳起來很快就打。</li>
+                <li><b>強攻</b>：跳得高，跳到接近最高點才打。</li>
+                <li><b>往前飛（後排攻擊）</b>：往前衝得遠，起跳點離擊球點比較遠。</li>
+                <li><b>自訂</b>：自己調過數字後才會出現。</li>
+              </ul>
+              選了快攻、強攻或往前飛，就會把這組數字存起來；如果這組跳法會讓球員落地時踩過中線，Courtline 會自動把往前飛的力道縮小一點，讓他落在自己這一邊。選回<b>自動</b>，剛才存的數字就清掉，回到原本的跳法。
+            </li>
+            <li>需要的話再微調（直接拉滑桿；在「自動」時一拉，就會先把自動算出來的數字存起來，再從那裡改）：
+              <ul class="tight">
+                <li><b>跳躍高度</b>：腳離地多高，0 就是不跳。</li>
+                <li><b>起跳後幾秒擊球</b>：腳離地到打到球隔多久。下面會告訴你跳到最高點要幾秒：比它短，就是跳起來的途中打；比它長，就是下降時才打。</li>
+                <li><b>起跳點、力道、落地點</b>：這三個是算出來的，也可以直接拉。起跳點寫「離網 1.27 公尺」，落地點也是離網幾公尺；越過中線會寫「越過中線 0.20 公尺（犯規）」。力道是起跳的速度（例如「起跳速度 每秒 4.29 公尺」）：往上的力加上往前的力，越大就飄得越前。</li>
+              </ul>
+            </li>
+            <li>按播放（或拖時間條）看結果：攻擊手跑到起跳點、跳起、在擊球點把球打出去、再往前飄一點落地。區塊最下面的摘要會寫「助跑多遠用多久」「起跳後幾秒擊球，擊球時離地多高，手大約搆到幾公尺」。擊球點比手搆得到的還高、落地越過中線等情形，會用黃字提醒。</li>
+          </ol>
+          <p>每一列右邊同樣有<b>鎖頭</b>，用法和上面的發球一樣（見<a href="#coupled-jump">跳躍的數字互相影響，可以上鎖</a>）。例如鎖住「落地點」，再把跳躍高度調高：落地點不變，力道和起跳點會跟著動，並寫在「連帶改變」那一句。每按一次鎖頭或改一次數字，<kbd>Ctrl</kbd>+<kbd>Z</kbd> 都能復原一次。</p>
+          <p>要知道的幾件事：</p>
+          <ul class="tight">
+            <li><b>助跑不在這一區設定。</b>攻擊手什麼時候開始跑、跑多快，在右側「球員」分頁，點該球員後的<a href="#run-timing">這一步的跑動時機</a>。這一區的摘要只是把那一步的助跑讀出來給你看；沒有助跑就寫「不助跑」。</li>
+            <li><b>助跑跑到起跳點就停</b>，不是跑到擊球點：他在起跳點離地，在空中飛到擊球點擊球。</li>
+            <li><b>擊球之後要等落地</b>，才從落地點開始往下一個位置跑；如果這一步的時間不夠他落地，這段跑動會延到下一步。</li>
+            <li>起跳點和落地點，是沿著他<b>助跑進來的方向</b>算的；沒有助跑時，就當他面向球網。</li>
+            <li>改的是別的東西（例如擊球點、網高）時，算出來的起跳點、落地點仍可能跟著變，鎖頭只管你在這一區調數字的時候。</li>
+          </ul>
+
+          <h3 id="shot-locks">鎖住數字：鎖住落點，再調角度或擊球點</h3>
+          <p>一記球的數字是互相牽動的：球速、角度、方向、擊球點，決定球飛到哪裡、飛多久、飛多高。想<b>只改一樣、其他維持原樣</b>，就按那一列右邊的<b class="ui">鎖頭</b>。鎖住的數字，在你調其他數字時<b>絕對不會變</b>。</p>
+          <ul class="tight">
+            <li><b>可以鎖的：</b>擊球點、球速、擊球角度、方向、旋轉；還有結果列的<b>落點</b>、<b>飛行時間</b>（接球時寫「飛到某人」）、<b>最高點</b>，球會過網的話還有<b>過網高度</b>。</li>
+            <li>鎖住的那一列，滑桿會暫時停用；要改，先把鎖打開。</li>
+          </ul>
+          <p><b>最常用的例子：鎖住落點。</b>按結果列<b>落點</b>旁的鎖頭，再把<b class="ui">擊球角度</b>調高，或把擊球點移到別的位置（拖黃色的圈、用「擊球點」工具，或用精確數據的滑桿）。Courtline 會<b>自動調整球速</b>（擊球點往旁邊移時<b>方向</b>也會跟著改），讓球<b>仍然落在同一個點</b>；沒鎖的數字只會動必要的幾個，並寫在滑桿下面那句「連帶改變：…」，例如「球速、飛行時間、最高點」。擊球點和旋轉不會被它偷偷改掉。剛動過的列會閃一下，也可以按 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 一次退回。</p>
+          <p><b>「已調到極限」是什麼意思：</b>你要的調整，被鎖住的數字（或球的物理上限）擋住了，做不到。例如落點和球速都鎖住，卻想把角度調得很高，球就到不了那一點。這時 Courtline 會盡量往你要的方向走到最遠，停在那裡，並寫出「已調到極限：被鎖住的「落點」「球速」擋住了」。想繼續調，就把它點名的鎖打開。在場上拖落點的圈、拖擊球點，碰到鎖住的數字時，則會跳出提示，球不會動。</p>
+          <p><b>上一球鎖住落點，這一球的擊球點也跟著固定。</b>上一球打到哪裡，下一個人就在那裡擊球：例如鎖住<b>舉球</b>的落點，後面那記<b>攻擊</b>的擊球點就等於這個落點，所以也跟著固定，不能直接拖。這時畫面會寫「上一球（舉球）的落點鎖住了」；想移動攻擊的擊球點，請先解開舉球的落點鎖。反過來，你移動這一球的擊球點時，上一球會自動重新瞄準，而且<b>上一球鎖住的其他數字也會守住</b>。</p>
+          <p>這跟<a href="#coupled-jump">跳躍的數字互相影響，可以上鎖</a>、<a href="#run-timing">這一步的跑動時機</a>是同一個概念：發球員的助跑跳躍、球員的起跑時間、每一記球的數字，每一列右邊的鎖頭用法都一樣，鎖住的不變，沒鎖的盡量少動。</p>
+          <p class="aside-tip">💡 鎖頭只管你在「這一記怎麼打」調數字、移動擊球點、瞄準落點的時候。如果你改的是<b>設定</b>分頁裡的球或網高，球的算法變了，落點、飛行時間這些算出來的數字仍可能跟著變。</p>
+
+          <h3>刪除一記球</h3>
+          <p>按最下面的<b class="ui ui-danger">刪除這一記</b>。它所在的步驟會保留成「跑位」，球員的跑位還在。刪錯了按 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 找回來。</p>
+
+          <div class="callout tip">
+            <p class="callout-title">💡 小技巧</p>
+            <p>拖滑桿時結果會一直更新，放開才算一個動作。所以一次「復原」就能退回拖動前的樣子。改球速、角度、方向、旋轉、擊球高度時，回合會保持接好：原本在空中接這一球的人，會跟著移到新的接球點。</p>
+          </div>
+        </section>
+
+        <!-- ===================================================================== 8 -->
+        <section class="chapter" id="steps" aria-labelledby="h-steps" data-keywords="步驟 時間軸 播放 暫停 慢動作 慢速 慢放 半速 0.5倍 0.5x 四分之一 速度 從頭 加一段跑位 跑位 跑位時間 刪除步驟 順序 提前 延後 起始站位 動畫 講解 某一刻 停格 共幾步 跑動時機 起跑 延遲 幾秒才起跑 比球早到 球到時同時到位 到位時間 跑多快 每秒幾公尺 提早到位 起跑延遲 反應時間 球的數值 數值 鎖 上鎖 鎖住 跑動速度 連動 連帶改變 已調到極限">
+          <h2 id="h-steps"><span class="ch-no" aria-hidden="true">8</span>步驟與播放</h2>
+          <p class="lede">戰術是一步一步組成的。播放時，球員從上一步的位置跑到這一步，這一步的球同時飛出去。</p>
+
+          <figure class="shot wide">
+            <a class="zoom" href="manual/timeline.png"><img src="manual/timeline.png" width="983" height="187" loading="lazy" alt="下方播放區：播放鍵、從頭播放、時間、可拖曳的時間條、速度選擇；中間是「共 4 步」、起始站位、發球、接發、舉球、攻擊和「加一段跑位」；最下排是跑位時間、這一步的長度、這一步的擊球選單，以及調整順序的「提前」「延後」和刪除。" /></a>
+            <figcaption>播放區：上排控制播放，中間是步驟，最下排設定亮著的那一步。</figcaption>
+          </figure>
+
+          <h3>步驟是什麼</h3>
+          <p class="flow" aria-label="例如：起始站位，然後發球、接發、舉球、攻擊">
+            <span>起始站位</span><span>發球</span><span>接發</span><span>舉球</span><span>攻擊</span>
+          </p>
+          <ul>
+            <li><b>起始站位</b>：開局時每個人站的位置，沒有擊球。</li>
+            <li><b>之後的每一步</b>：標出這一步的擊球（例如「發球」），沒有擊球就寫「跑位」。下面的小字是擊球者和這一步有幾秒。左邊的「共 N 步」不算起始站位。</li>
+            <li>擊球者在這一步<b>一開始</b>、從他上一步站的位置擊球；同時大家從上一步的位置跑到這一步的位置。</li>
+            <li>一步的長度是「跑位時間」和「球飛完」兩者取比較長的。但<b>球在空中被下一個人接走的那一步，到接到球的那一刻就結束</b>：跑位時間調得再長，球也不會停在半空中等人。</li>
+          </ul>
+
+          <h3 id="step-view">點一步，看到的是這一步的「結束」</h3>
+          <div class="mini-pair">
+            <figure class="shot">
+              <a class="zoom" href="manual/step-view.png"><img src="manual/step-view.png" width="594" height="452" loading="lazy" alt="示範戰術第 2 步的步驟畫面：接發的球路停在網前 對2 手上的橘色接球圈，地上的淡色箭頭標出 我3、我2 這一步從哪裡跑過來。" /></a>
+              <figcaption>點第 2 步（接發）：球已經傳到舉球員手上，淡色箭頭是大家這一步跑過來的路線。</figcaption>
+            </figure>
+          </div>
+          <ul>
+            <li>點某一步（或按 <kbd>←</kbd> <kbd>→</kbd>），畫面停在<b>這一步的結束</b>：球已經落地，或已經交到下一個人手上；人站在這一步的位置。這一步有跑位的人，地上有淡藍色（我方）或淡紅色（對方）的箭頭，從他上一步的位置指過來。</li>
+            <li>點<b>起始站位</b>，畫面是開局那一刻：第一球準備打出去。</li>
+            <li>在步驟畫面上可以直接拖球員、拖擊球點、瞄準落點。</li>
+          </ul>
+
+          <h3>加一段跑位與整理步驟</h3>
+          <ul>
+            <li><b class="ui">加一段跑位</b>：複製亮著那一步的站位，接在它後面，成為一步只有跑位、沒有擊球的「跑位」（1 秒）。把球員拖到新位置，播放時他們就會跑過去。最多 30 步。如果亮著的那一步屬於一串在空中連續傳遞的球，跑位會放在<b>這一串的前面</b>（原因見<a href="#run-before">第 5 章</a>）。</li>
+            <li><b class="ui">跑位時間</b>：這一步球員跑到新位置要花幾秒（0.2–5 秒）。旁邊的「這一步 x 秒」是這一步實際的長度；球飛得比較久時會寫「（等球飛完）」。球被隊友在空中接走的那一步，長度就是球飛到他手上的時間，調跑位時間不會讓它變長。</li>
+            <li><b class="ui">這一步的擊球</b>：選這一步要打哪一球，或選「（只有跑位，沒有擊球）」。</li>
+            <li><b class="ui">調整順序</b>：<b class="ui">提前</b>、<b class="ui">延後</b>把這一步和前一步或後一步對調。起始站位固定在最前面；把第 1 步提前不了。</li>
+            <li><b>垃圾桶</b>：刪除這一步（至少會保留一步）。這一步的球會移出時間軸但沒有被刪掉：在別的步驟的<b class="ui">這一步的擊球</b>選它，就能放回來。</li>
+            <li>對調或刪除步驟之後，每一球會改從擊球者現在的位置打出，並重新傳到下一個人手上；接不到的會提示「「接發」現在接不到下一位了，請重新瞄準。」</li>
+          </ul>
+
+          <h3 id="play">播放</h3>
+          <ul>
+            <li><b>播放／暫停</b>：按大的圓形按鈕，或按 <kbd>空白鍵</kbd>。</li>
+            <li><b>從哪裡開始播</b>：停在某一步按播放，<b>從那一步開始</b>播到最後；停在最後一步或起始站位按播放，<b>播整個回合</b>。</li>
+            <li><b>從頭播放</b>：旁邊的繞圈箭頭 ↺，一律從頭播。</li>
+            <li><b>慢動作</b>：右邊的<b class="ui">½×</b>是半速、<b class="ui">¼×</b>是四分之一速、<b class="ui">1×</b>是正常速度。講解給球員聽時，半速最好用。</li>
+            <li><b>拖曳時間條</b>：停在任何一刻檢查。時間條上的刻度是每一步的結束，點刻度就跳到那一步。</li>
+          </ul>
+
+          <h3 id="moment">暫停時，畫面停在「那一刻」</h3>
+          <figure class="shot wide">
+            <a class="zoom" href="manual/moment.png"><img src="manual/moment.png" width="983" height="775" loading="lazy" alt="示範戰術播放到 2.6 秒時暫停：左上角的「球的數值」小卡寫著「飛行中、第 2 步・接發・對5、高度 2.67 公尺、對方 6 號區」，球正從 對5 飛向網前，場上底部提示「這是播放中的某一刻。點下方的步驟回到可以編輯的畫面。」下方的第 2 步（接發）被標亮。" /></a>
+            <figcaption>暫停在第 2 步中間：左上角的小卡是這一刻球的各種數字；正在播的「2 接發」被標亮。</figcaption>
+          </figure>
+          <ul>
+            <li>按暫停或拖時間條，畫面會<b>停在那一刻</b>：球在半空中、球員跑到一半。正在播的那一步會被標亮，右側也會切到那一球。</li>
+            <li>球場左上角的小卡顯示這一刻球的<b>高度、位置、速度、時間</b>（<a href="#readout">下一節</a>有說明）。</li>
+            <li>再按播放，從這一刻接著播。想回到可以編輯的畫面，點下方的步驟；在這一刻直接拖球員或瞄準，也會先回到那一步再改。</li>
+          </ul>
+
+          <h3 id="run-timing">這一步的跑動時機：幾秒後起跑、什麼時候到位</h3>
+          <p>每位球員在每一步（第 1 步以後）都可以設定自己什麼時候開始跑、什麼時候要到。Courtline 會自動算出他要跑多快。</p>
+          <figure class="shot">
+            <a class="zoom" href="manual/run-timing.png"><img src="manual/run-timing.png" width="363" height="590" loading="lazy" alt="右側「球員」分頁的「這一步的跑動時機」：對5 的「球擊出後幾秒才起跑」設為 0.30 秒，「到位時間」選了「比球早到」，「比球早幾秒到位」設為 0.40 秒；每一列右邊有鎖頭，跑動速度已鎖住。" /></a>
+            <figcaption>對5 在發球打出去 0.30 秒後才起跑，並且比球早 0.40 秒到位。</figcaption>
+          </figure>
+          <ol>
+            <li>點下方的一個步驟（第 1 步以後；起始站位沒有跑動，不能設）。</li>
+            <li>在場上點一位球員，右側會切到<b class="ui">球員</b>分頁，找到<b class="ui">這一步的跑動時機</b>。</li>
+            <li><b>球擊出後幾秒才起跑</b>：打數字（0.00 到 3.00 秒）或拉滑桿。0 秒就是球一擊出他就跑，數字越大他越晚動。這一步沒有球時，改成從這一步開始算。</li>
+            <li><b>到位時間</b>選一種：
+              <ul class="tight">
+                <li><b>跟著步驟跑位時間</b>：用這一步原本的跑位時間跑完。</li>
+                <li><b>球到時同時到位</b>：只有「下一個要接球擊球的人」才有，也是他的預設。</li>
+                <li><b>比球早到</b>：在球到之前幾秒就先站好，秒數自己填。</li>
+              </ul>
+            </li>
+            <li>看下面那一行算給你的數字，例如「要跑 0.85 公尺，可用 0.42 秒 → 每秒 2.00 公尺（約 7 km/h）」，判斷這樣跑合不合理。</li>
+          </ol>
+          <p>跑得比一般球員衝刺（約每秒 7 公尺）還快，或延遲長到來不及跑時，會出現黃色提醒。想回到預設，按右上角的<b class="ui">還原預設</b>。</p>
+          <p><b>起跑延遲、到位、跑動速度三個數字也是互相影響的</b>：晚起跑，或要早一點到位，就得跑得更快。每一列右邊都有小鎖頭，鎖住的不會被你調其他列時改掉，沒鎖的才會跟著動（寫在「連帶改變」那一句）。例如鎖住<b>跑動速度</b>再加長<b>起跑延遲</b>，他就會晚到位，而不是跑更快。要是被鎖頭擋住，會寫「已調到極限」，打開被點名的鎖就能繼續調。跑動速度鎖住時，不能切換到位方式，也不能按還原預設。</p>
+          <p class="aside-tip">💡 鎖頭只管你在這一區調數字的時候；改了球的落點或速度，算出來的跑動速度還是會變。球本身的數字（落點、球速、角度等）也能上鎖，見<a href="#shot-locks">鎖住數字</a>。</p>
+
+          <h3 id="arrive-together">球到時同時到位</h3>
+          <p>下一個要擊球的人（例如發球之後的接發球員）會<b>剛好在球到的那一刻站到擊球點</b>：不會球還在空中他已經站著等，也不會球到了他還在跑。Courtline 會自動調整他的跑速，讓兩者同時到。跳起來擊球的人（攻擊、攔網，或跳發）也一樣：<b>最高點就在擊球那一刻</b>。想讓他提早站好，改選<b>比球早到</b>；想讓他晚一點才動，加<b>起跑延遲</b>。</p>
+
+          <div class="callout warn">
+            <p class="callout-title">⚠️ 播放中不能編輯</p>
+            <p>按暫停（或空白鍵）停下來，就能繼續修改。</p>
+          </div>
+        </section>
+
+        <!-- ===================================================================== 9 -->
+        <section class="chapter" id="camera" aria-labelledby="h-camera" data-keywords="視角 鏡頭 相機 俯視 側面 我方視角 對方視角 旋轉 轉動 縮放 放大 拉近 拉遠 滾輪 重設 雙擊 回到原本視角 手機 兩指 橫的">
+          <h2 id="h-camera"><span class="ch-no" aria-hidden="true">9</span>視角</h2>
+          <p class="lede">球場右上角有四個視角按鈕，一鍵切換；也可以用滑鼠自由轉動。</p>
+
+          <div class="grid2">
+            <figure class="shot">
+              <a class="zoom" href="manual/camera-own.png"><img src="manual/camera-own.png" width="788" height="542" loading="lazy" alt="我方視角：從我方底線後面看向對方，發球飛向對方場地，停在 對5 手上。" /></a>
+              <figcaption><b>我方視角</b>：站在我方底線後面看，最像教練在場邊。開啟時就是這個視角。</figcaption>
+            </figure>
+            <figure class="shot">
+              <a class="zoom" href="manual/camera-opponent.png"><img src="manual/camera-opponent.png" width="813" height="549" loading="lazy" alt="對方視角：從對方底線後面看過來，我方的發球正飛向畫面前方的 對5。" /></a>
+              <figcaption><b>對方視角</b>：從對方底線看過來，檢查對手看到的空檔。</figcaption>
+            </figure>
+            <figure class="shot">
+              <a class="zoom" href="manual/camera-top.png"><img src="manual/camera-top.png" width="904" height="529" loading="lazy" alt="寬螢幕的俯視：球場橫放，我方在左、對方在右，發球從左下角飛到右邊的 對5。" /></a>
+              <figcaption><b>俯視</b>：從正上方看。寬螢幕上球場是橫的，我方在左、對方在右；手機上是直的，對方在上。最適合看站位、跑位和瞄準落點。</figcaption>
+            </figure>
+            <figure class="shot">
+              <a class="zoom" href="manual/camera-side.png"><img src="manual/camera-side.png" width="983" height="327" loading="lazy" alt="側面視角：從邊線外看發球的弧線越過球網，落到對方 對5 手上。" /></a>
+              <figcaption><b>側面</b>：從邊線外看，最適合看弧線、過網高度和在空中交接的高度。左右方向會重疊在一起。</figcaption>
+            </figure>
+          </div>
+
+          <h3>用滑鼠自由看</h3>
+          <div class="table-wrap">
+            <table class="ref">
+              <caption class="sr-only">滑鼠操作視角</caption>
+              <thead><tr><th scope="col">動作</th><th scope="col">效果</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">拖曳空白地板</th><td>轉動視角（要在<b class="ui">選取</b>模式）。</td></tr>
+                <tr><th scope="row">滾動滑鼠滾輪</th><td>先<b>點一下球場</b>，再滾動滑鼠拉近拉遠；或按住 <kbd>Ctrl</kbd> 滾動。沒先點的話，滾輪會捲動頁面，球場上會跳出提示。</td></tr>
+                <tr><th scope="row">⟲ 回到原本視角</th><td>轉過或拉近之後，球場上會出現這個按鈕，按一下就回到原本的樣子。</td></tr>
+                <tr><th scope="row">雙擊空白地板</th><td>同樣回到原本視角（選取模式）。</td></tr>
+                <tr><th scope="row">再按一次視角按鈕</th><td>同樣回到原本視角。</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="footnote">用鍵盤也可以：先點一下球場，<kbd>+</kbd>／<kbd>−</kbd> 拉近拉遠，<kbd>Shift</kbd>+方向鍵轉動，<kbd>0</kbd> 回到原本視角。手機和平板的手勢見<a href="#faq-mobile">常見問題</a>。</p>
+        </section>
+
+        <!-- ===================================================================== 10 -->
+        <section class="chapter" id="draw" aria-labelledby="h-draw" data-keywords="箭頭 畫線 標示 路線 跑位 註記 畫圖 刪除線 清除">
+          <h2 id="h-draw"><span class="ch-no" aria-hidden="true">10</span>箭頭與畫線</h2>
+          <p class="lede">在地板上畫箭頭或路線，標出跑位方向，講解時更清楚。</p>
+          <div class="split aim-split">
+            <figure class="shot">
+              <a class="zoom" href="manual/drawing.png"><img src="manual/drawing.png" width="446" height="437" loading="lazy" alt="俯視的我方半場：兩支箭頭從後排往前指，一條自由畫的折線從 我6 附近繞到網前，標示跑位方向。" /></a>
+              <figcaption>俯視時畫最清楚：兩支箭頭和一條自由畫的路線。</figcaption>
+            </figure>
+            <div class="split-text">
+              <ul>
+                <li><b class="ui">箭頭</b>（<kbd>A</kbd>）：在球場上按住、拖到終點再放開，就會畫出一支箭頭。</li>
+                <li><b class="ui">畫線</b>（<kbd>D</kbd>）：按住滑鼠自由畫，放開就完成。</li>
+                <li>畫好的圖形會跟著戰術一起儲存，每一步都看得到（最多 100 筆）。</li>
+                <li>想全部擦掉，按左側工具下方的<b class="ui">清除畫線</b>（場上有圖形時才會出現），一樣可以復原。</li>
+              </ul>
+              <div class="callout tip">
+                <p class="callout-title">💡 小技巧</p>
+                <p>畫錯了？剛畫好的那一筆可以直接按 <kbd>Delete</kbd> 刪掉；更早畫的就用 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 復原。畫完記得按 <kbd>Esc</kbd> 回到選取，才能拖曳球員。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================== 11 -->
+        <section class="chapter" id="files" aria-labelledby="h-files" data-keywords="儲存 存檔 存起來 保存 備份 開啟 打開 檔案 下載 上傳 分享 傳給 換電腦 自動儲存 草稿 戰術檔 json 新增 示範 列印 印出來 印出 pdf 截圖 取名 換掉 直接換掉 另一個分頁 無法自動儲存 尚未自動儲存 儲存中 未存在瀏覽器 ctrl+s">
+          <h2 id="h-files"><span class="ch-no" aria-hidden="true">11</span>存檔、開檔與分享</h2>
+          <p class="lede">Courtline 會自動幫你存。要帶走、分享或備份時，再存成戰術檔。</p>
+
+          <h3>自動儲存</h3>
+          <p>
+            每次修改都會自動存在<b>這台電腦的這個瀏覽器</b>裡，戰術名稱旁會顯示<b class="ui">已自動儲存</b>（存的當下是「儲存中…」）。下次用同一台電腦、同一個瀏覽器打開，會接著上次的進度。不過它只記得<b>最新的一個戰術</b>：換成別的戰術之後，舊的就要靠戰術檔保存。
+          </p>
+
+          <div class="split aim-split">
+            <figure class="shot">
+              <a class="zoom" href="manual/file-menu.png"><img src="manual/file-menu.png" width="490" height="259" loading="lazy" alt="打開的檔案選單：新增空白戰術、載入示範戰術、開啟戰術檔…、儲存成檔案。" /></a>
+              <figcaption>上方的「檔案」選單。</figcaption>
+            </figure>
+            <div class="split-text">
+              <h3>檔案選單</h3>
+              <ul class="tight">
+                <li><b class="ui">新增空白戰術</b>：開一個全新的空白球場。</li>
+                <li><b class="ui">載入示範戰術</b>：換成內建的「示範：發球到攻防」。</li>
+                <li><b class="ui">開啟戰術檔…</b>：選一個之前存下來的戰術檔（.json）打開。</li>
+                <li><b class="ui">儲存成檔案</b>（<kbd>Ctrl</kbd>+<kbd>S</kbd>）：下載戰術檔，通常在「下載」資料夾，檔名就是戰術名稱。還叫「未命名戰術」的話，會先請你<b>取個名字</b>。</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 id="replace">換掉目前的戰術之前，會先問你</h3>
+          <p>「新增空白戰術」「載入示範戰術」「開啟戰術檔…」和影片的「套用到球場」都會<b>換掉</b>畫面上的戰術。只要目前的戰術有你的心血（不是空白球場、也不是沒動過的示範），就會先跳出確認：</p>
+          <figure class="shot">
+            <a class="zoom" href="manual/replace-confirm.png"><img src="manual/replace-confirm.png" width="520" height="199" loading="lazy" alt="「開始新的空白戰術？」對話框：新的空白戰術會換掉畫面上的「接發進攻 4 號位」，關掉網頁之前都可以按「復原」換回來。按鈕是「先儲存成檔案，再繼續」「直接換掉」「取消」。" /></a>
+            <figcaption>三個選擇：先存檔再換、直接換掉，或取消。</figcaption>
+          </figure>
+          <ul>
+            <li><b class="ui">先儲存成檔案，再繼續</b>：先把目前的戰術下載成檔案，再換。</li>
+            <li><b class="ui">直接換掉</b>：不存，直接換。</li>
+            <li><b class="ui">取消</b>：什麼都不做。</li>
+          </ul>
+          <p>就算直接換掉了，<b>在關掉網頁之前</b>都可以按<b class="ui">復原</b>（<kbd>Ctrl</kbd>+<kbd>Z</kbd>）換回原本的戰術。</p>
+
+          <h3 id="share">分享給其他教練、或換電腦</h3>
+          <ol>
+            <li>按<b class="ui">檔案 → 儲存成檔案</b>（還沒取名的話，順便取個名字）。</li>
+            <li>把下載的戰術檔用 LINE、Email、隨身碟或雲端硬碟傳過去。</li>
+            <li>對方打開 Courtline，按<b class="ui">檔案 → 開啟戰術檔…</b>，選這個檔案。</li>
+          </ol>
+
+          <h3>名字旁邊的狀態</h3>
+          <div class="table-wrap">
+            <table class="ref">
+              <caption class="sr-only">自動儲存狀態</caption>
+              <thead><tr><th scope="col">顯示</th><th scope="col">意思與做法</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">已自動儲存</th><td>修改都存在這個瀏覽器裡了。</td></tr>
+                <tr><th scope="row">儲存中…</th><td>剛改過，正在存（一眨眼就會變成「已自動儲存」）。</td></tr>
+                <tr><th scope="row">無法自動儲存</th><td>這個瀏覽器存不了草稿（可能是私密瀏覽或空間不足），同時會跳出紅色提示。照常可以編輯和播放，但請用「檔案 → 儲存成檔案」保存。</td></tr>
+                <tr><th scope="row">另一個分頁改過了</th><td>同一個戰術開在兩個分頁，另一個分頁改過它。會跳出「這個戰術在另一個分頁被修改了」，選<b class="ui">載入那個版本</b>或<b class="ui">保留這裡的版本</b>，之後恢復自動儲存。</td></tr>
+                <tr><th scope="row">尚未自動儲存</th><td>剛打開、還沒改過的示範，或剛清除過草稿（也包括上次的草稿打不開時）。下一次修改就會開始自動儲存。</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout note">
+            <p class="callout-title">📌 關掉網頁之後就不能復原</p>
+            <p>
+              復原紀錄在關掉網頁時就沒了，重要的戰術請<b>儲存成檔案</b>。清除瀏覽資料、用無痕視窗或換電腦時，自動儲存的草稿也會不見。草稿萬一壞掉打不開，Courtline 會先開空白戰術，並跳出「上次的草稿打不開」，可以按<b class="ui">下載備份</b>留一份。
+            </p>
+          </div>
+
+          <h3 id="print">想印出來或貼到講義？</h3>
+          <p>
+            Courtline 沒有列印功能。想把球場畫面放進講義或 LINE 群組：先暫停在想要的那一刻（建議用俯視），再用電腦的截圖功能截下來——Windows 按 <kbd>Win</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>，Mac 按 <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>4</kbd>。這份手冊本身可以用瀏覽器的列印（<kbd>Ctrl</kbd>+<kbd>P</kbd>）印出來或存成 PDF。
+          </p>
+        </section>
+
+        <!-- ===================================================================== 12 -->
+        <section class="chapter" id="video" aria-labelledby="h-video" data-keywords="影片 錄影 匯入 分析 四個角 四個點 角落 標角 中線 3公尺線 側邊 鏡像 自動修正順序 姿勢 辨識 走位 腳架 網路 模型 比賽影片 mp4 mov webm 放大鏡 準確度 拍攝角度 套用到球場 影片動畫">
+          <h2 id="h-video"><span class="ch-no" aria-hidden="true">12</span>從影片匯入</h2>
+          <p class="lede">把一段比賽或練習影片，變成可以播放、可以修改的走位動畫。整個過程分三步：選擇影片、標出四個角、分析，視窗上方會標出你在第幾步。</p>
+
+          <h3>先拍好影片</h3>
+          <ul>
+            <li><b>固定腳架，不要移動鏡頭</b>：拍攝中鏡頭一動，位置就會跑掉。</li>
+            <li><b>架高一點，讓遠端底線也清楚</b>：越高越準，站上看台或高處拍最好。</li>
+            <li><b>整個球場四個角都要入鏡</b>。從側邊拍、底線不在畫面內也可以，改標兩條 3 公尺線（見下方第 2 步）。</li>
+          </ul>
+
+          <ol class="steps compact">
+            <li>
+              <h3>選擇影片</h3>
+              <p>
+                按上方的<b class="ui">從影片匯入</b>（空白球場的卡片上也有）。把影片拖進視窗，或點一下選擇檔案；手機或相機拍的 MP4、MOV、WebM 都可以，影片不會上傳到網路。
+              </p>
+              <figure class="shot">
+                <a class="zoom" href="manual/video.png"><img src="manual/video.png" width="1100" height="828" loading="lazy" alt="從影片匯入視窗的第一步：上方標出選擇影片、標出四個角、分析三個步驟，中間是拖放影片的區域，右邊是拍攝小提醒。" /></a>
+                <figcaption>第一步：選擇影片，右邊有拍攝小提醒。</figcaption>
+              </figure>
+              <p>選好之後，拖動滑桿挑一張<b>四個角都看得清楚、沒被人擋住</b>的畫面。長影片可以用<b class="ui">−1 秒</b>／<b class="ui">+1 秒</b>、<b class="ui">−10 秒</b>／<b class="ui">+10 秒</b>、<b class="ui">▶ 播放</b>找畫面，或在「跳到」輸入時間（長影片打「分:秒」，例如 23:15；短影片打秒數，例如 2.5）；方向鍵每次 1 秒，按住 <kbd>Shift</kbd> 每次 10 秒。挑好按<b class="ui">下一步：標出四個角</b>。</p>
+              <figure class="shot">
+                <a class="zoom" href="manual/video-pick.png"><img src="manual/video-pick.png" width="1100" height="1009" loading="lazy" alt="第一步選好影片之後：顯示影片畫面、檔名和長度、「換一部影片」，下方是挑畫面的滑桿，右下角是「下一步：標出四個角」。" /></a>
+                <figcaption>選好影片：拖動滑桿挑一張清楚的畫面。</figcaption>
+              </figure>
+            </li>
+            <li>
+              <h3>標出四個角</h3>
+              <p>
+                照右邊小圖的順序，點出球場地板的四個角：<b>1 近端左角</b> → <b>2 近端右角</b> → <b>3 遠端右角</b> → <b>4 遠端左角</b>。「近端」是靠鏡頭的那一邊。
+              </p>
+              <ul class="tight">
+                <li>點錯了，直接<b>拖動圓點</b>調整，或按<b class="ui">復原上一步</b>（<kbd>Ctrl</kbd>+<kbd>Z</kbd>）；<b class="ui">全部重點</b>會再問一次才清掉。滑鼠移到畫面上會出現<b>放大鏡</b>，幫你對準。</li>
+                <li>畫面上的<b>黃色細線</b>是推算出的中線和 3 公尺線，應該要和地上的線重疊；沒對齊就再微調。</li>
+                <li>右下的<b>拍攝角度</b>告訴你這個角度換算出的位置大概準不準：<b>很好</b>、<b>普通</b>、<b>偏差大</b>（仍可繼續），或<b>還不能用</b>（點的形狀不像球場）。</li>
+                <li>順序點錯了（例如連線交叉），會提示你按<b class="ui">自動修正順序</b>；影片本身是鏡像的，可以按「我的影片是鏡像的，照這樣繼續」。</li>
+              </ul>
+              <p>看不到四個角時，小圖下面有兩種改標法：</p>
+              <ul class="tight">
+                <li><b class="ui ui-wrap">遠端底線看不清楚？改標中線兩端</b>：點靠鏡頭的兩個角，和球網正下方中線的兩端。</li>
+                <li><b class="ui ui-wrap">從側邊拍、底線不在畫面內？改標兩條 3 公尺線</b>：點兩條 3 公尺線（攻擊線）和兩條邊線的四個交點，再告訴它「我方在」<b>左邊</b>或<b>右邊</b>。</li>
+              </ul>
+              <p>換了標法，上方第 2 步的名稱也會跟著變成「標出兩角和中線」或「標出四個端點」。</p>
+              <figure class="shot">
+                <a class="zoom" href="manual/video-corners.png"><img src="manual/video-corners.png" width="1100" height="947" loading="lazy" alt="從影片匯入視窗的第二步：影片畫面上標好四個角，黃色線框出球場和推算出的 3 公尺線；右邊是點的順序小圖、「四個角都標好了」、兩種改標法的連結，以及拍攝角度「普通」。" /></a>
+                <figcaption>第二步：四個角標好後，會畫出推算的球場線，右下角告訴你拍攝角度準不準。</figcaption>
+              </figure>
+            </li>
+            <li>
+              <h3>分析</h3>
+              <p>
+                影片超過 15 秒時，先拖動滑桿選<b>要分析哪一段</b>（一次最多 15 秒）。按<b class="ui">開始分析</b>，Courtline 會每 0.5 秒看一次畫面，找出場上的人，把他們的腳步換成球場上的位置。隨時可以按<b class="ui">取消</b>。
+              </p>
+              <p>
+                完成後會給你看結果：找到幾位球員（我方／對方各幾位）、做成幾步（起始站位＋幾段跑位）、動畫多長，以及第一步的站位小圖。按<b class="ui">套用到球場</b>，就會變成一個叫「影片動畫」的戰術並切到俯視，按播放就能看大家怎麼跑。
+              </p>
+              <figure class="shot">
+                <a class="zoom" href="manual/video-summary.png"><img src="manual/video-summary.png" width="1100" height="828" loading="lazy" alt="從影片匯入視窗的第三步：分析完成。左邊是第一步站位的小球場圖（我方藍點、對方紅點），右邊寫找到 12 位球員（我方 6 / 對方 6）、做成 7 步（起始站位＋7 段跑位）、動畫長度 3.5 秒，右下角是「套用到球場」。" /></a>
+                <figcaption>第三步：分析完成，先看結果再決定要不要套用。</figcaption>
+              </figure>
+            </li>
+          </ol>
+
+          <div class="callout warn">
+            <p class="callout-title">⚠️ 注意</p>
+            <ul>
+              <li>只還原<b>球員的走位</b>，影片裡的球不會還原。擊球請之後自己加上。</li>
+              <li>第一次分析需要<b>網路</b>，用來下載辨識模型（約 5–10 MB）。影片本身在你的電腦上分析，不會上傳。</li>
+              <li>按「套用到球場」會<b>換掉</b>目前的戰術（需要的話會先問你，見<a href="#replace">第 11 章</a>）；你在「設定」分頁的用球、空氣和「誰接得到？」全隊標準會保留（個別球員的接球習慣會清掉，因為球員是新的），箭頭和畫線則清掉。不滿意就按<b class="ui">復原</b>（<kbd>Ctrl</kbd>+<kbd>Z</kbd>）換回來。</li>
+              <li>在分析完、還沒套用前關掉視窗，這次的分析結果不會保留（視窗會先問你）。</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ===================================================================== 13 -->
+        <section class="chapter" id="faq" aria-labelledby="h-faq" data-keywords="常見問題 問題 疑難 排解 求助 faq 未指定 沒有名字 沒人舉 舉球員 二傳 不見了 球員分頁 還沒有人打這一球 延遲 反應時間 起跑 提早到位 拋球 助跑 跳發 跳飄 數值 速度 球的數值 鎖 上鎖 力道 起跳點 落地點 連動 連帶改變 已調到極限 為什麼 跟著變 鎖落點 固定落點 球速自己變 角度 擊球點">
+          <h2 id="h-faq"><span class="ch-no" aria-hidden="true">13</span>常見問題</h2>
+          <p class="lede">點問題就會展開答案。</p>
+
+          <div class="faq">
+            <details id="faq-pick">
+              <summary>我想讓某個人接這一球？</summary>
+              <div class="answer">
+                <ul>
+                  <li><b>還沒加：</b>在場上點他（或在「球員」分頁點他的名字）。右邊會<b>自動切到「球員」分頁</b>，「加下一球」暫時看不到是正常的：直接按<b class="ui">讓 他 擊球</b>下面的技術按鈕；也可以按<b class="ui">擊球</b>分頁回去，看到「加下一球」右上角寫「由 他 擊球」再按技術。他會跑到上一球落下的位置去打，上一球的球路不變。如果工具還停在瞄準落點，點他只會瞄準那裡的地板，先按 <kbd>Esc</kbd> 再點他。</li>
+                  <li><b>已經加好了：</b>在右側「這一記怎麼打」的<b class="ui">擊球者</b>選單換人。新選的人會跑到原本打這一球的位置，在空中接上一球（發球就退到底線外）；原本的人回到自己的位置。球仍打到原本的落點。</li>
+                </ul>
+              </div>
+            </details>
+            <details id="faq-tab">
+              <summary>點了球員，右邊的「加下一球」不見了？</summary>
+              <div class="answer">
+                <p>這是正常的：點球員時，右邊會自動切到<b class="ui">球員</b>分頁，顯示他的名字、位置，和<b class="ui">讓 他 擊球</b>的技術按鈕。</p>
+                <ul>
+                  <li>要讓他打下一球：直接按<b class="ui">讓 他 擊球</b>下面的技術。</li>
+                  <li>要回到「加下一球」：按上方的<b class="ui">擊球</b>分頁。右上角會寫「由 他 擊球 ×」，表示下一球由他打；按 × 改回自動挑選。</li>
+                  <li>不想選他：按「球員」分頁最上面的<b class="ui">← 全部球員</b>，或按 <kbd>Esc</kbd>。</li>
+                </ul>
+              </div>
+            </details>
+            <details id="faq-hitter">
+              <summary>為什麼擊球者不是我想要的人？</summary>
+              <div class="answer">
+                <p>看「加下一球」右上角：寫著「由 我3 擊球」，就是你剛剛<b>點過或拖過</b>我3，他被選中了。按標籤上的 <b>×</b> 改回「自動挑選擊球者」。</p>
+                <p>寫「自動挑選擊球者」時：發球找我方離底線最近的人，攔網找網前的人，其他球找球落下來那一邊離球最近的人。詳見<a href="#who">誰來打這一球？</a></p>
+              </div>
+            </details>
+            <details id="faq-lob">
+              <summary>為什麼攻擊變成吊球？</summary>
+              <div class="answer">
+                <p>結果卡寫「變成吊球」，表示這記攻擊是<b>往上</b>打出去的（擊球角度往上超過約 12°）。通常是攻擊手接球的位置太低，或要打的落點太遠。</p>
+                <ul>
+                  <li>把<b>擊球高度</b>調高（跳起攻擊約 3 公尺）。</li>
+                  <li>讓前一球（舉球）舉得更高、更靠網：點舉球那一記，重新<b class="ui ui-aim">瞄準落點</b>到網前。</li>
+                  <li>攻擊的落點點近一點，或直接拖動「擊球角度」往下。</li>
+                </ul>
+              </div>
+            </details>
+            <details id="faq-midair">
+              <summary>為什麼球停在半空中？</summary>
+              <div class="answer">
+                <ul>
+                  <li><b>球被下一個人接走了</b>：球停在他手上，有一個橘色的接球圈，結果卡寫「傳到 X」或「被 X 攔下」。這是正常的，見<a href="#air">球怎麼在空中傳遞</a>。</li>
+                  <li><b>「傳到位」</b>：球已經傳到隊友該接的高度，但後面還沒加下一球。照提示加一記（例如「舉球」），就會有人去接；加了之後下方步驟上那一步後面沒有人名，見下一題。</li>
+                  <li><b>暫停在某一刻</b>：左上角的「球的數值」小卡會寫這一刻球的高度、位置和速度，點下方的步驟就回到步驟畫面。</li>
+                  <li><b>「球還沒落地」</b>：4 秒內沒落地，通常是角度或擊球點太高，把角度放低或重新瞄準。</li>
+                </ul>
+              </div>
+            </details>
+            <details id="faq-noname">
+              <summary>下方步驟上某一步後面沒有人名（「還沒有人打這一球」）？</summary>
+              <div class="answer">
+                <p>表示 Courtline 沒有替這一球找到人，結果卡會寫黃色的<span class="tag tag-warn">還沒有人打這一球</span>。最簡單的修法：在下方「這一記怎麼打」的<b class="ui">擊球者</b>選一位球員。常見的原因是上一球被瞄到太遠、出界，或傳到沒有人的地方。</p>
+                <p>也可以從上一球修起：</p>
+                <ol>
+                  <li>按 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 退掉這一記舉球（畫面會回到接發那一步）。</li>
+                  <li>按 <kbd>T</kbd>（瞄準落點），點網前中間的地板（舉球員 對3 附近），替接發重新指定落點。</li>
+                  <li>再按一次<b class="ui">舉球</b>：下方那一步會寫「舉球 對3」。接著再加<b class="ui">攻擊</b>。</li>
+                </ol>
+                <p>另一個方法：在場上點舉球員的名牌，在「球員」分頁按<b class="ui">讓 對3 擊球</b>下面的<b class="ui">舉球</b>。對3 會跑到接發落下的位置去舉球，接發的球路不變。</p>
+              </div>
+            </details>
+            <details id="faq-order">
+              <summary>新加的球跑到中間，順序亂掉了？</summary>
+              <div class="answer">
+                <p>停在某一步時，新的一球會接在<b>那一步</b>後面。你可能點回前面的步驟看過，才按技術按鈕。</p>
+                <p>解決方法：按 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 復原，點<b>起始站位</b>或最後一步，再加一次（停在起始站位時，新的一球一定接在回合最後）。或用步驟下方的<b class="ui">提前</b>／<b class="ui">延後</b>調整順序。</p>
+              </div>
+            </details>
+            <details id="faq-net">
+              <summary>球一直掛網怎麼辦？</summary>
+              <div class="answer">
+                <p>最快的方法是用<b class="ui ui-aim">瞄準落點</b>重新點一個落點，Courtline 會自己找出能過網的球速和角度。也可以手動調整：</p>
+                <ul>
+                  <li>把<b>擊球角度</b>往上調，或把<b>球速</b>加快。</li>
+                  <li>把<b>擊球高度</b>調高（例如跳發、跳起攻擊）。</li>
+                  <li>落點不要選得太靠近網子。</li>
+                  <li>女子組記得把上方的網高切到<b class="ui">女子 2.24</b>。</li>
+                </ul>
+                <p>結果卡片上的「過網」會告訴你差幾公分。</p>
+              </div>
+            </details>
+            <details id="faq-out">
+              <summary>球飛出界了？</summary>
+              <div class="answer">
+                <p>結果卡片會說超出多少，例如「超出對方底線約 80 公分」。重新<b class="ui ui-aim">瞄準落點</b>最簡單；手動的話，可以把球速放慢、角度放低，或改用<b>上旋</b>讓球下墜得快一點。方向偏了就調整「方向」。上一球出界時，加下一球不會自動找人接。</p>
+              </div>
+            </details>
+            <details id="faq-refused">
+              <summary>點了落點卻說「離網太近」？</summary>
+              <div class="answer">
+                <p>發球、攻擊、自由球如果要打成超過 8 公尺高的高吊球才落得到，Courtline 會拒絕這個落點。請點離網遠一點的位置，或把擊球點移近一點。</p>
+                <p>被拒絕之後，工具<b>仍停在<b class="ui ui-aim">瞄準落點</b></b>，球路也沒有變：直接再點一個離網遠一點的位置就好，不用再按一次瞄準。那行提示幾秒後會自動消失（也可以按 × 關掉）；再點一個位置後出現的「已瞄準：…」是新的結果，不代表又被拒絕。</p>
+              </div>
+            </details>
+            <details id="faq-zone">
+              <summary>對方 1 號位在畫面的哪裡？</summary>
+              <div class="answer">
+                <p>在我方視角裡，對方 1 號位在<b>畫面的左上角</b>（對方面向我們，他們的右後是我們的左邊）；我方 1 號位在右下角。寬螢幕的俯視是橫的，對方 1 號位在右上角。最簡單的方法：瞄準時場上會直接標出號區，滑鼠旁也會寫「對方 1 號區」。看<a href="#zones">號位圖</a>。</p>
+              </div>
+            </details>
+            <details id="faq-return">
+              <summary>為什麼球員在下一步又跑回原位？</summary>
+              <div class="answer">
+                <p>
+                  每一步都記錄自己的站位。你在某一步移動球員時，後面還沒動過他的步驟會跟著改；但如果後面某一步已經另外擺過他（例如他在那一步跑去接球），那一步會保留原來的位置，所以播放時他會跑回去。
+                </p>
+                <p>解決方法：在下方點那一步（或按 <kbd>→</kbd>），再把他拖到你要的位置。</p>
+              </div>
+            </details>
+            <details id="faq-play">
+              <summary>按播放沒反應，或從中間開始播？</summary>
+              <div class="answer">
+                <ul>
+                  <li>播放鍵是灰色的：還沒有可以播放的內容。先加一球，或加一段跑位並移動球員。</li>
+                  <li>停在某一步按播放，是<b>從那一步開始</b>播；想從頭看，按旁邊的 ↺（從頭播放），或先點起始站位或最後一步。</li>
+                  <li>游標停在文字框（例如戰術名稱）裡時，空白鍵會變成打字。先點一下球場再按。</li>
+                </ul>
+              </div>
+            </details>
+            <details id="faq-rotation">
+              <summary>可以排輪轉嗎？</summary>
+              <div class="answer">
+                <p>目前<b>沒有輪轉功能</b>。變通的方法：每一輪做成一個戰術檔，在起始站位把球員拖到那一輪的位置，取名「輪 1 接發」「輪 2 接發」…分別存檔。</p>
+              </div>
+            </details>
+            <details id="faq-save">
+              <summary>我的戰術存在哪裡？換電腦怎麼辦？</summary>
+              <div class="answer">
+                <p>
+                  平常會自動存在<b>這台電腦的這個瀏覽器</b>裡。要換電腦，先按<b class="ui">檔案 → 儲存成檔案</b>下載戰術檔，再到另一台電腦按<b class="ui">檔案 → 開啟戰術檔…</b>打開。詳見<a href="#share">分享給其他教練、或換電腦</a>。
+                </p>
+              </div>
+            </details>
+            <details id="faq-print">
+              <summary>可以印出來嗎？</summary>
+              <div class="answer">
+                <p>Courtline 沒有列印功能，可以用電腦的截圖功能把球場畫面截下來。做法見<a href="#print">想印出來或貼到講義？</a></p>
+              </div>
+            </details>
+            <details id="faq-video">
+              <summary>影片分析失敗？</summary>
+              <div class="answer">
+                <ul>
+                  <li><b>沒有網路</b>：第一次分析需要下載辨識模型，連上網路後按「再試一次」。</li>
+                  <li><b>標的點不對</b>：順序要照小圖；按「重新標角」，確認黃色細線和地上的線重疊。從側邊拍的話，也確認「我方在」左邊還是右邊。</li>
+                  <li><b>鏡頭有移動或太低</b>：請用架在腳架上、高一點的影片。</li>
+                  <li><b>影片太短</b>（至少 1 秒），或人太小、太暗、被擋住：換一段看得清楚的片段，按「用這一段再分析」，或換一部影片。</li>
+                </ul>
+              </div>
+            </details>
+            <details id="faq-mobile">
+              <summary>可以用手機或平板嗎？</summary>
+              <div class="answer">
+                <p>
+                  可以打開、播放和做簡單的修改，畫面會自動改成直式排列：最上面兩排是戰術名稱和按鈕（檔案、從影片匯入、使用手冊變成小圖示），接著是工具和球場，往下捲是播放、步驟和右側的分頁。在球場上：<b>一指上下滑</b>是捲動頁面，<b>一指左右滑</b>是轉動視角，<b>兩指開合</b>是縮放；點球員可以選取、拖曳。小螢幕比較擠，排戰術建議用電腦（或橫放的平板）；手機很適合拿到場邊播放給球員看。
+                </p>
+                <div class="mini-pair">
+                  <figure class="shot phone">
+                    <a class="zoom" href="manual/mobile.png"><img src="manual/mobile.png" width="390" height="844" loading="lazy" alt="手機直式畫面的上半：第一排是戰術名稱、復原、重做；第二排是網高，以及檔案、從影片匯入、使用手冊三個小圖示；下面是一排工具和球場。" /></a>
+                    <figcaption>手機畫面的上半。</figcaption>
+                  </figure>
+                  <figure class="shot phone">
+                    <a class="zoom" href="manual/mobile-court.png"><img src="manual/mobile-court.png" width="390" height="844" loading="lazy" alt="手機往下捲：球場、播放鍵、速度選擇、時間條和步驟。" /></a>
+                    <figcaption>往下捲：球場、播放和步驟。</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </details>
+            <details id="faq-accuracy">
+              <summary>結果準不準？</summary>
+              <div class="answer">
+                <p>
+                  球路依照重力、空氣阻力和旋轉計算，用的是室內場館的一般數值，很適合排戰術和教學，但不是官方認證的數據。真實比賽還會受到球員技術、用球和場館影響。詳見<a href="#about">關於模擬結果</a>。
+                </p>
+              </div>
+            </details>
+            <details id="faq-undo">
+              <summary>按錯了可以復原嗎？</summary>
+              <div class="answer">
+                <p>可以。按 <kbd>Ctrl</kbd>+<kbd>Z</kbd> 或上方的<b class="ui">復原</b>，最多可以退回 50 個動作；<kbd>Ctrl</kbd>+<kbd>Y</kbd> 重做。新增空白戰術、載入示範、開啟檔案、套用影片之後，也可以按復原換回原本的戰術。關掉網頁後，復原紀錄就沒了。</p>
+              </div>
+            </details>
+            <details id="faq-delay">
+              <summary>怎麼讓某個人晚一點才跑，或比球早一點站好？</summary>
+              <div class="answer">
+                <ol>
+                  <li>點下方的步驟（第 1 步以後），再點場上那位球員。</li>
+                  <li>在右側「球員」分頁的<b class="ui">這一步的跑動時機</b>，填<b>球擊出後幾秒才起跑</b>（延遲／反應時間）。</li>
+                  <li>要他提早到位，把<b class="ui">到位時間</b>改成<b>比球早到</b>，再填早幾秒。</li>
+                </ol>
+                <p>詳細說明見<a href="#run-timing">這一步的跑動時機</a>；<b>球到時同時到位</b>是下一個擊球者的預設。</p>
+              </div>
+            </details>
+            <details id="faq-serve-motion">
+              <summary>發球員怎麼拋球、助跑、跳發或跳飄？</summary>
+              <div class="answer">
+                <ol>
+                  <li>點一記發球，在右側「擊球」分頁找到<b class="ui">發球動作</b>。</li>
+                  <li>勾選<b class="ui">顯示拋球、助跑、起跳</b>，再選<b>站著發</b>、<b>跳飄</b>或<b>跳發</b>。</li>
+                  <li>要微調，拉拋球高度、助跑距離、開始助跑、跳躍高度的滑桿。</li>
+                </ol>
+                <p>詳細說明見<a href="#serve-motion">發球動作</a>。</p>
+              </div>
+            </details>
+            <details id="faq-attack-stop">
+              <summary>攻擊手為什麼跑到擊球點前面就停下來？</summary>
+              <div class="answer">
+                <p>因為他跑的是<b>起跳點</b>，不是擊球點。攻擊手先跑到起跳點，在那裡離地，再在空中飛到擊球點把球打出去，所以看起來是在擊球點前面（或旁邊）停下、跳起來。</p>
+                <ol>
+                  <li>點該攻擊，在右側「擊球」分頁看<b class="ui">攻擊動作</b>裡的<b>起跳點</b>，那就是他跑到的地方。</li>
+                  <li>想讓起跳點離擊球點近一點，選<b>自動</b>（原地往上跳），或把<b>力道</b>調小、跳法改成快攻。</li>
+                  <li>想讓他一直跑到擊球點才跳，就把跳躍高度調到 0（不跳）。</li>
+                </ol>
+                <p>詳細說明見<a href="#attack-motion">攻擊動作</a>。</p>
+              </div>
+            </details>
+            <details id="faq-coupled">
+              <summary>為什麼我改一個數字，別的數字也跟著變？</summary>
+              <div class="answer">
+                <p>因為有些數字本來就是綁在一起的：發球和攻擊的跳躍高度、起跳點、力道、落地點互相影響；跑動的起跑延遲、到位、跑動速度也是；每一記球的球速、角度、方向、擊球點和落點也是。改一個，其他的要跟著算。</p>
+                <ol>
+                  <li>不想讓某個數字被動到，就按那一列右邊的<b class="ui">鎖頭</b>鎖住它，鎖住的絕對不會變。</li>
+                  <li>沒鎖的只會動必要的幾個，並寫在「連帶改變」那一句。</li>
+                  <li>如果出現「已調到極限」，代表被鎖住的數字擋住了，打開被點名的鎖就能繼續調。</li>
+                </ol>
+                <p>詳細說明見<a href="#coupled-jump">跳躍的數字互相影響，可以上鎖</a>與<a href="#shot-locks">鎖住數字</a>。</p>
+              </div>
+            </details>
+            <details id="faq-lock-speed">
+              <summary>鎖住落點後為什麼球速自己變了？</summary>
+              <div class="answer">
+                <p>因為你鎖的是「球要落在哪裡」，不是球速。這時你再調擊球角度、移動擊球點，球要仍然落在同一點，球速和方向就得跟著改：角度抬高，球飛得更久，所需的球速也不同；擊球點換位置，球速和方向都要重算。這是鎖頭在幫你守住落點。</p>
+                <ol>
+                  <li>滑桿下面那一句「連帶改變：球速、方向」，就是告訴你哪些數字跟著動。</li>
+                  <li>球速也不想變，就把<b class="ui">球速</b>旁的鎖頭一起鎖住；只是兩個都鎖住時，能調的範圍會變小，擋住時會寫「已調到極限」。</li>
+                  <li>擊球點和旋轉不會被偷偷改掉；上一球的落點鎖住時，這一球的擊球點也會固定。</li>
+                </ol>
+                <p>詳細說明見<a href="#shot-locks">鎖住數字</a>。</p>
+              </div>
+            </details>
+            <details id="faq-readout">
+              <summary>在哪裡看球的速度、高度這些數值？</summary>
+              <div class="answer">
+                <p>球場左上角的<b>球的數值</b>小卡：播放時會跟著球更新，拖時間條停在任何一刻，就能讀到那一刻球的高度、位置和速度。看不到的話，按小按鈕「球的數值」打開。見<a href="#readout">球的即時數值</a>。</p>
+              </div>
+            </details>
+            <details id="faq-start">
+              <summary>「起始站位」為什麼不能加擊球？</summary>
+              <div class="answer">
+                <p>起始站位只記錄開局時每個人的位置。球從第 1 步開始飛；停在起始站位按技術按鈕，新的一球會接在回合最後一球的後面，放進自己的一步。</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- ===================================================================== A -->
+        <section class="chapter appendix" id="settings" aria-labelledby="h-settings" data-keywords="附錄 設定 進階 跑動速度 反應時間 起跑加速 加速 胸口高度 錐張開角度 手臂伸直長度 上手扇形角度 用上手接球 用低手接球 接球習慣 接球範圍 比賽用球 型號 v200w v300w 球重 氣壓 空氣 旋轉 網高 男子 女子 草稿 清除 本機草稿 尚未自動儲存 未存在瀏覽器">
+          <h2 id="h-settings"><span class="ch-no" aria-hidden="true">A</span>附錄 A・進階設定</h2>
+          <p class="lede">大多數時候不用改。想讓「誰接得到？」更貼近你的球隊（接球範圍的粗細、長度，以及上手與低手的比例），或換用不同的球，就看這裡（右側「設定」分頁）。</p>
+
+          <div class="split">
+            <figure class="shot panel">
+              <a class="zoom" href="manual/settings-a.png"><img src="manual/settings-a.png" width="372" height="1133" loading="lazy" alt="設定分頁上半部：誰接得到？的判斷標準（跑動速度、反應時間、起跑加速、胸口高度、錐張開角度、手臂伸直長度、上手扇形角度，以及「用上手接球」「用低手接球」兩個勾選框）與比賽用球（型號、球重、氣壓）。" /></a>
+              <figcaption>設定分頁（上半部）。</figcaption>
+            </figure>
+            <div class="split-text">
+              <h3>誰接得到？的判斷標準</h3>
+              <ul class="tight">
+                <li><b>跑動速度</b>：球員每秒能跑幾公尺。一般球員約 4–5（預設 4.5）。</li>
+                <li><b>反應時間</b>：看到球到開始移動要多久（預設 0.20 秒）。</li>
+                <li><b>起跑加速</b>：從站著到全速有多快（預設每秒加快 4 公尺/秒，大約 1.1 秒到全速）。越大，越快到全速。</li>
+                <li><b>胸口高度</b>：站著準備時胸口離地多高，也是錐的尖端（預設 1.15 公尺，可調 0.60–1.60 公尺）。</li>
+                <li><b>錐張開角度</b>：從錐的中線到錐邊是幾度，越大錐越胖（預設 60 度，可調 10–89 度）。</li>
+                <li><b>手臂伸直長度</b>：雙手併攏伸直，從胸口到手的距離，不含撲出去（預設 0.70 公尺，可調 0.30–1.20 公尺）。</li>
+                <li><b>上手扇形角度</b>：從擊球方向看過去，圓錐上方用上手接的扇形有幾度，其餘是低手（預設 上手 100 度／低手 260 度，可調上手 10–350 度）。畫面上會同時寫出上手和低手各幾度。</li>
+                <li><b>用上手接球、用低手接球</b>：兩個勾選框，預設都勾。關掉「用上手接球」，就只剩下方的低手扇形；兩個都關掉，這個設定下的球員什麼球都接不到。</li>
+              </ul>
+              <p>這裡是全隊的預設。錐是從胸口對準擊球點的圓錐，球到之前球員可以先反應、再跑動，錐跟著人走（原理見<a href="#reach">第 6 章</a>）。個別球員習慣不同的話，到<a href="#players">球員分頁</a>的「接球習慣」另外調整。這幾個數字是第一次的估計值，可以依你的球隊調整。這是快速檢查防守站位的提示，不是體能測驗。</p>
+              <h3>比賽用球</h3>
+              <ul class="tight">
+                <li><b>型號</b>：V200W 或 V300W。</li>
+                <li><b>球重</b>：比賽用球是 260–280 公克。</li>
+                <li><b>氣壓</b>：影響球落地時壓扁的程度。球的周長固定為 0.66 公尺。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="split">
+            <figure class="shot panel">
+              <a class="zoom" href="manual/settings-b.png"><img src="manual/settings-b.png" width="372" height="408" loading="lazy" alt="設定分頁下半部：收起來的空氣與旋轉（進階）、關於模擬結果的四點說明、本機草稿與「清除瀏覽器裡的草稿」按鈕。" /></a>
+              <figcaption>設定分頁（下半部）。</figcaption>
+            </figure>
+            <div class="split-text">
+              <h3>空氣與旋轉（進階）</h3>
+              <p>空氣密度、空氣阻力、旋轉影響、旋轉影響上限，以及「計算落地衝量」和反彈係數。一般室內場館不需要改；改亂了，按<b class="ui">回復室內預設</b>。</p>
+              <h3>關於模擬結果</h3>
+              <p>四點說明算了什麼、沒算什麼，內容和<a href="#about">附錄 C</a> 相同。</p>
+              <h3>本機草稿</h3>
+              <p><b class="ui">清除瀏覽器裡的草稿</b>：確認後，這台電腦的瀏覽器就不再記得這個戰術（適合共用電腦）。畫面上的戰術會留著，名字旁顯示「尚未自動儲存」；下一次修改又會重新自動儲存。</p>
+              <h3>網高</h3>
+              <p>不在這裡，在畫面最上方切換<b class="ui">男子 2.43</b>／<b class="ui">女子 2.24</b>。</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================== B -->
+        <section class="chapter appendix" id="keys" aria-labelledby="h-keys" data-keywords="附錄 快捷鍵 鍵盤 按鍵 熱鍵 ctrl ctrl+s 空白鍵 esc delete 復原 重做 滑鼠 滾輪 縮放 回正">
+          <h2 id="h-keys"><span class="ch-no" aria-hidden="true">B</span>附錄 B・快捷鍵與滑鼠</h2>
+          <p class="lede">記不住也沒關係：在 Courtline 裡按 <kbd>?</kbd>，或按左側工具最下面的<b class="ui">? 快捷鍵</b>，就會跳出一覽表。</p>
+          <p>在文字框裡打字時，快捷鍵不會作用。Mac 請把 <kbd>Ctrl</kbd> 換成 <kbd>⌘</kbd>。</p>
+
+          <div class="keys-grid">
+            <div class="table-wrap">
+              <table class="ref keys">
+                <caption>場上工具</caption>
+                <thead><tr><th scope="col">按鍵</th><th scope="col">工具</th></tr></thead>
+                <tbody>
+                  <tr><td><kbd>V</kbd></td><td>選取</td></tr>
+                  <tr><td><kbd>Q</kbd></td><td>放我方</td></tr>
+                  <tr><td><kbd>W</kbd></td><td>放對方</td></tr>
+                  <tr><td><kbd>T</kbd></td><td>瞄準落點</td></tr>
+                  <tr><td><kbd>R</kbd></td><td>擊球點</td></tr>
+                  <tr><td><kbd>A</kbd></td><td>箭頭</td></tr>
+                  <tr><td><kbd>D</kbd></td><td>畫線</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-wrap">
+              <table class="ref keys">
+                <caption>播放、編輯與視角</caption>
+                <thead><tr><th scope="col">按鍵</th><th scope="col">作用</th></tr></thead>
+                <tbody>
+                  <tr><td><kbd>空白鍵</kbd></td><td>播放／暫停</td></tr>
+                  <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>上一步／下一步</td></tr>
+                  <tr><td><kbd>Esc</kbd></td><td>回到「選取」、取消瞄準或畫到一半的線（瞄準時想改選球員，先按 Esc）</td></tr>
+                  <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>儲存成檔案</td></tr>
+                  <tr><td><kbd>Delete</kbd></td><td>刪除剛選取的球員、畫線或這一記*</td></tr>
+                  <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>復原</td></tr>
+                  <tr><td><kbd>Ctrl</kbd>+<kbd>Y</kbd><br /><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd></td><td>重做</td></tr>
+                  <tr><td><kbd>+</kbd> <kbd>−</kbd></td><td>放大縮小球場（先點一下球場）</td></tr>
+                  <tr><td><kbd>Shift</kbd>+方向鍵</td><td>轉動視角（先點一下球場）</td></tr>
+                  <tr><td><kbd>0</kbd></td><td>視角回正（雙擊空白處也可以）</td></tr>
+                  <tr><td><kbd>?</kbd></td><td>打開或關閉快捷鍵一覽</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="footnote">
+            * <kbd>Delete</kbd> 會刪除最後點選的東西：選中的球員、剛畫好的箭頭或線，或選到的那一記球。<kbd>Backspace</kbd> 只刪剛畫好的箭頭或線，或選到的那一記球，<b>不會刪球員</b>（刪球員請按 <kbd>Delete</kbd>）。播放中不會刪。刪錯了按 <kbd>Ctrl</kbd>+<kbd>Z</kbd>。
+          </p>
+
+          <figure class="shot">
+            <a class="zoom" href="manual/shortcuts.png"><img src="manual/shortcuts.png" width="640" height="612" loading="lazy" alt="Courtline 裡的快捷鍵一覽視窗：左欄是七個工具的按鍵，右欄是播放、上一步下一步、Esc、Delete、復原、重做、滑鼠滾輪、+ / −、Shift + 方向鍵、0 或雙擊空白處、? 。" /></a>
+            <figcaption>在 Courtline 裡按 ? 或「? 快捷鍵」就會出現這張一覽表。</figcaption>
+          </figure>
+
+          <h3>滑鼠</h3>
+          <div class="table-wrap">
+            <table class="ref keys">
+              <caption class="sr-only">滑鼠操作</caption>
+              <thead><tr><th scope="col">動作</th><th scope="col">作用</th></tr></thead>
+              <tbody>
+                <tr><td>點或拖曳球員</td><td>選中他（下一球由他打）；拖曳會移動他在亮著那一步的位置</td></tr>
+                <tr><td>拖曳落點圈</td><td>改這一球的落點（選取模式；接球的人跟著移動）。圈上有別的球員或名牌時會改成選到那位球員，請用瞄準落點（名牌擋住時可切到俯視）</td></tr>
+                <tr><td>拖曳空白地板</td><td>轉動視角（選取模式）</td></tr>
+                <tr><td>滾輪</td><td>先點一下球場再滾動，拉近拉遠（或按住 <kbd>Ctrl</kbd> 滾動）</td></tr>
+                <tr><td>雙擊空白地板</td><td>回到原本視角</td></tr>
+                <tr><td>⟲ 回到原本視角</td><td>轉過或拉近後出現在球場上，按一下復位</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===================================================================== C -->
+        <section class="chapter appendix" id="about" aria-labelledby="h-about" data-keywords="附錄 準確 精準 物理 模擬 限制 擦網 計分 官方 認證 隱私 上傳">
+          <h2 id="h-about"><span class="ch-no" aria-hidden="true">C</span>附錄 C・關於模擬結果</h2>
+          <p class="lede">Courtline 是排戰術和教學的工具。知道它算了什麼、沒算什麼，用起來更安心。</p>
+          <ul class="facts">
+            <li><b>球路怎麼算：</b>依照重力、空氣阻力和旋轉計算，使用室內場館的一般數值。適合排戰術和教學，不是官方認證的數據。</li>
+            <li><b>碰到網就停：</b>球碰到網子就停下來，不模擬擦網後繼續飛，也不計分。</li>
+            <li><b>「誰接得到？」是提示：</b>給教練參考用，不代表球員的實際體能。</li>
+            <li><b>球員不會擋到球：</b>球員的身體和動作只是畫面，不會改變球的路線；在空中「接到球」是因為下一球從那裡打出，不是身體碰撞。</li>
+            <li><b>飄球不晃：</b>飄球當作完全不旋轉，不模擬左右晃動。</li>
+            <li><b>最多算 4 秒：</b>4 秒內沒落地的球，會顯示「球還沒落地」。</li>
+            <li><b>資料留在你的電腦：</b>計算都在你的瀏覽器裡完成，戰術不會上傳。</li>
+          </ul>
+        </section>
+
+
+        <footer class="page-foot">
+          <p>Courtline 排球戰術板・使用手冊</p>
+          <p><a href="#top">回到頂端</a> ・ <a href="./">開啟 Courtline</a></p>
+        </footer>
+      </main>
+    </div>
+
+    <button type="button" class="to-top" aria-label="回到頂端" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+    </button>
+
+    <dialog class="lightbox" aria-label="放大圖片">
+      <div class="lb-stage">
+        <div class="lb-frame">
+          <img alt="" />
+        </div>
+      </div>
+      <p class="lb-caption"></p>
+      <p class="lb-hint"></p>
+      <button type="button" class="lb-close" aria-label="關閉（Esc）">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+      </button>
+      <button type="button" class="lb-prev" aria-label="上一張">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+      </button>
+      <button type="button" class="lb-next" aria-label="下一張">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+      </button>
+    </dialog>
+
+  </body>
+</html>
